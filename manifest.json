@@ -1,0 +1,31 @@
+{
+  "name": "Portland 2026 — Cards, Wine & the Ritz",
+  "short_name": "Portland 26",
+  "description": "David & Paula's Portland, OR trip guide — November 6–8, 2026",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#1e5a6b",
+  "background_color": "#f6f4f0",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231e5a6b'/><text y='.9em' x='50' text-anchor='middle' font-size='65'>🌹</text></svg>",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231e5a6b'/><text y='.9em' x='50' text-anchor='middle' font-size='65'>🌹</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231e5a6b'/><text y='.9em' x='50' text-anchor='middle' font-size='65'>🌹</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

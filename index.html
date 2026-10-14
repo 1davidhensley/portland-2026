@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#1e5a6b">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Portland 26">
+  <meta name="description" content="David & Paula's Portland, OR trip guide — November 6–8, 2026">
+  <title>Portland 2026</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231e5a6b'/><text y='.9em' x='50' text-anchor='middle' font-size='65'>🌹</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231e5a6b'/><text y='.9em' x='50' text-anchor='middle' font-size='65'>🌹</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       Design tokens — "Rose City" palette
+       Willamette teal (river) · Forest Park green (fir) ·
+       Rose City pink (rose) · Willamette Valley wine (wine)
+       RULE: every color here needs a dark-mode counterpart below.
+       ============================================================ */
+    :root {
+      --paper: #f6f4f0;
+      --paper-2: #ece8e1;
+      --card: #ffffff;
+      --ink: #1a2124;
+      --ink-2: #3a464b;
+      --ink-dim: #6c777c;
+      --hairline: #dad5cc;
+
+      --river: #1e5a6b;
+      --river-soft: rgba(30, 90, 107, 0.10);
+      --fir: #2f5d3f;
+      --fir-soft: rgba(47, 93, 63, 0.12);
+      --rose: #b8325a;
+      --rose-soft: rgba(184, 50, 90, 0.10);
+      /* Wine-day accent — Saturday's card. Never hardcode this hex elsewhere; use var(--wine). */
+      --wine: #7b2d4a;
+      --wine-soft: rgba(123, 45, 74, 0.12);
+
+      --warn: #9a6200;
+      --warn-soft: rgba(168, 106, 0, 0.12);
+      /* Hard warnings (e.g. a GPS route that dead-ends) */
+      --alert: #b3261e;
+      --alert-soft: rgba(179, 38, 30, 0.10);
+
+      /* Hero gradient sits under white text, so it stays dark in both themes */
+      --hero-a: #1e5a6b;
+      --hero-b: #2f5d3f;
+
+      --shadow: 0 1px 2px rgba(26, 33, 36, 0.06), 0 4px 14px rgba(26, 33, 36, 0.06);
+      --radius: 14px;
+      --font-display: 'Fraunces', Georgia, serif;
+      --font-body: 'Work Sans', -apple-system, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #0f1416;
+        --paper-2: #182124;
+        --card: #151c1f;
+        --ink: #eef1f1;
+        --ink-2: #c4cdcf;
+        --ink-dim: #8b979a;
+        --hairline: #27333a;
+
+        --river: #72b6c8;
+        --river-soft: rgba(114, 182, 200, 0.16);
+        --fir: #8cc7a2;
+        --fir-soft: rgba(140, 199, 162, 0.14);
+        --rose: #f08ca8;
+        --rose-soft: rgba(240, 140, 168, 0.14);
+        --wine: #e597b6;
+        --wine-soft: rgba(229, 151, 182, 0.16);
+
+        --warn: #f0b64a;
+        --warn-soft: rgba(240, 182, 74, 0.14);
+        --alert: #ff8a80;
+        --alert-soft: rgba(255, 138, 128, 0.14);
+
+        --hero-a: #163f4b;
+        --hero-b: #213f2c;
+
+        --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 14px rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+    body {
+      font-family: var(--font-body);
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+    a { color: var(--river); }
+    strong { font-weight: 600; }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      background: linear-gradient(135deg, var(--hero-a), var(--hero-b));
+      color: #fff;
+      padding: calc(28px + env(safe-area-inset-top)) 20px 26px;
+    }
+    .hero-inner { max-width: 720px; margin: 0 auto; }
+    .hero-kicker { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.85; }
+    .hero h1 { font-family: var(--font-display); font-size: 2.2rem; line-height: 1.1; margin: 6px 0 8px; }
+    .hero-meta { font-size: 0.92rem; opacity: 0.92; }
+    .hero-meta span { white-space: nowrap; }
+    .countdown { margin-top: 12px; display: inline-block; background: rgba(255,255,255,0.16); border-radius: 999px; padding: 4px 12px; font-size: 0.85rem; font-weight: 600; }
+
+    /* ---------- Sticky pill nav ---------- */
+    .nav {
+      position: sticky; top: 0; z-index: 20;
+      background: var(--paper);
+      border-bottom: 1px solid var(--hairline);
+    }
+    .nav-inner {
+      max-width: 720px; margin: 0 auto;
+      display: flex; gap: 8px; overflow-x: auto; padding: 10px 16px;
+      scrollbar-width: none;
+    }
+    .nav-inner::-webkit-scrollbar { display: none; }
+    .pill {
+      flex: 0 0 auto;
+      border: 1.5px solid var(--hairline);
+      background: var(--card);
+      color: var(--ink-2);
+      border-radius: 999px;
+      padding: 6px 13px;
+      font: 600 0.82rem var(--font-body);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .pill.today { border-color: var(--river); color: var(--river); }
+    .pill.wine { border-color: var(--wine); color: var(--wine); }
+    .pill.aux { border-style: dashed; }
+
+    main { max-width: 720px; margin: 0 auto; padding: 16px 16px 40px; }
+    .section-title { font-family: var(--font-display); font-size: 1.4rem; margin: 28px 0 12px; }
+
+    /* ---------- Day cards ---------- */
+    .day-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 14px;
+      border-left: 5px solid var(--river);
+      overflow: hidden;
+    }
+    .day-card.wine-day { border-left-color: var(--wine); }
+    .day-card.today-card { outline: 2px solid var(--river); outline-offset: 2px; }
+    .day-card-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 16px 14px; cursor: pointer; user-select: none;
+    }
+    .day-num-row { display: flex; align-items: baseline; gap: 8px; }
+    .day-number { font-family: var(--font-display); font-size: 1.9rem; line-height: 1; color: var(--river); }
+    .wine-day .day-number { color: var(--wine); }
+    .day-weekday { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-dim); font-weight: 600; }
+    .day-theme { font-weight: 700; font-size: 1.05rem; margin-top: 2px; }
+    .day-badges { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+    .badge { font-size: 0.7rem; font-weight: 700; border-radius: 999px; padding: 2px 9px; }
+    .badge.wine { background: var(--wine-soft); color: var(--wine); }
+    .day-toggle { font-size: 1.2rem; color: var(--ink-dim); transition: transform 0.3s; }
+    .day-card.expanded .day-toggle { transform: rotate(180deg); }
+
+    /* Expand animation — KEEP max-height as a large number (not `none`, not small).
+       `none` kills the transition; a small value (London's old 3000px) silently
+       truncates long days under overflow:hidden. */
+    .day-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s ease;
+      padding: 0 16px;
+    }
+    .day-card.expanded .day-content {
+      max-height: 50000px;
+      padding-bottom: 16px;
+    }
+
+    /* ---------- Weather bar (imperial first, metric pill) ---------- */
+    .weather-bar {
+      display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+      background: var(--river-soft);
+      border-radius: 10px; padding: 8px 12px; margin-bottom: 14px;
+      font-size: 0.88rem;
+    }
+    .weather-icon { font-size: 1.5rem; }
+    .weather-temp { font-weight: 700; }
+    .metric-pill {
+      font-size: 0.72rem; font-weight: 600; color: var(--ink-dim);
+      border: 1px solid var(--hairline); border-radius: 999px; padding: 1px 7px; margin-left: 4px;
+      white-space: nowrap;
+    }
+    .weather-rain { color: var(--ink-2); }
+    .weather-src { margin-left: auto; font-size: 0.7rem; color: var(--ink-dim); }
+
+    .day-note {
+      background: var(--wine-soft); border: 1.5px dashed var(--wine);
+      border-radius: 12px; padding: 10px 14px; margin-bottom: 14px;
+      font-size: 0.9rem; color: var(--ink);
+    }
+    .day-note b { color: var(--wine); }
+
+    /* ---------- Stops ---------- */
+    .stop-list { position: relative; }
+    .stop {
+      position: relative;
+      padding: 10px 0 12px 22px;
+      border-bottom: 1px solid var(--hairline);
+    }
+    .stop:last-child { border-bottom: 0; }
+    .stop::before {
+      content: ''; position: absolute; left: 4px; top: 16px;
+      width: 9px; height: 9px; border-radius: 50%;
+      background: var(--river);
+    }
+    .wine-day .stop::before { background: var(--wine); }
+    .stop.optional::before { background: transparent; border: 2px solid var(--ink-dim); }
+    .stop.now { box-shadow: inset 3px 0 0 var(--river); }
+    .stop.now .stop-time::after { content: ' · 📍 Now'; color: var(--river); }
+    .stop-time {
+      display: inline-block; font-size: 0.75rem; font-weight: 700;
+      color: var(--river); background: var(--river-soft);
+      border-radius: 6px; padding: 1px 7px; margin-bottom: 3px;
+    }
+    .wine-day .stop-time { color: var(--wine); background: var(--wine-soft); }
+    .stop-header { display: flex; gap: 8px; align-items: flex-start; font-weight: 600; }
+    .stop-emoji { flex: 0 0 auto; }
+    .stop-name { min-width: 0; overflow-wrap: anywhere; }
+    .stop-name a { color: inherit; text-decoration-color: var(--hairline); text-underline-offset: 3px; }
+    .stop-details { font-size: 0.9rem; color: var(--ink-2); margin-top: 4px; overflow-wrap: anywhere; }
+    .nw { white-space: nowrap; }
+    .stop-actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+    .maps-btn {
+      font-size: 0.78rem; font-weight: 600; text-decoration: none;
+      color: var(--river); border: 1.5px solid var(--river);
+      border-radius: 999px; padding: 3px 10px;
+    }
+    .tag { font-size: 0.74rem; font-weight: 600; border-radius: 999px; padding: 3px 10px; }
+    .tag.res { background: var(--fir-soft); color: var(--fir); border: 1.5px solid var(--fir); }
+    .tag.sugg, .tag.opt { background: var(--paper-2); color: var(--ink-dim); border: 1.5px dashed var(--hairline); }
+    .tag.pick { background: var(--rose-soft); color: var(--rose); border: 1.5px solid var(--rose); }
+    .tag.incl { background: var(--river-soft); color: var(--river); }
+    .tbd-note { font-size: 0.8rem; color: var(--warn); margin-top: 6px; }
+    .confirm-note, .alert-note {
+      font-size: 0.86rem; border-radius: 10px; padding: 8px 11px; margin-top: 8px;
+    }
+    .confirm-note { background: var(--warn-soft); color: var(--ink); border: 1.5px solid var(--warn); }
+    .confirm-note b { color: var(--warn); }
+    .alert-note { background: var(--alert-soft); color: var(--ink); border: 1.5px solid var(--alert); }
+    .alert-note b { color: var(--alert); }
+
+    .stop-checklist { margin-top: 8px; }
+    .stop-checklist-item { display: flex; gap: 8px; align-items: flex-start; font-size: 0.88rem; padding: 3px 0; }
+    .stop-checklist-item input { margin-top: 3px; accent-color: var(--river); width: 16px; height: 16px; flex: 0 0 auto; }
+    .stop-checklist-item input:checked + label { color: var(--ink-dim); text-decoration: line-through; }
+
+    /* Undecided choice: one mini card per option */
+    .options { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px; margin-top: 8px; }
+    .option { background: var(--paper-2); border-radius: 10px; padding: 9px 11px; }
+    .option-k { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-dim); }
+    .option-name { font-weight: 700; color: var(--ink); }
+    .option .stop-details { margin-top: 2px; }
+    .option .maps-btn { display: inline-block; margin-top: 6px; }
+
+    .walk-transition {
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+      margin: 0 0 0 6px; padding: 8px 0 8px 14px;
+      border-left: 2px dashed var(--fir);
+      font-size: 0.82rem; color: var(--fir);
+    }
+    .walk-maps { font-weight: 600; color: var(--fir); }
+
+    .inline-transport {
+      background: var(--paper-2); border-radius: 10px;
+      padding: 10px 12px; margin: 8px 0 4px;
+      font-size: 0.86rem;
+    }
+    .inline-transport-title { font-weight: 700; margin-bottom: 6px; }
+    .transport-step { display: flex; gap: 8px; align-items: flex-start; padding: 2px 0; }
+    .transport-step-icon {
+      flex: 0 0 22px; height: 22px; border-radius: 50%;
+      display: grid; place-items: center; font-size: 0.7rem; color: #fff; background: var(--river);
+    }
+    .step-ride { background: var(--ink-dim); }
+    .step-exit { background: var(--fir); }
+    .transport-time { font-size: 0.78rem; color: var(--ink-dim); margin-top: 6px; }
+
+    /* ---------- Resources / Travel / Packing ---------- */
+    .panel {
+      background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
+      margin-bottom: 12px; overflow: hidden;
+    }
+    .panel > summary {
+      list-style: none; cursor: pointer; padding: 14px 16px;
+      font-weight: 700; display: flex; justify-content: space-between; align-items: center; gap: 8px;
+    }
+    .panel > summary::-webkit-details-marker { display: none; }
+    .panel > summary::after { content: '▾'; color: var(--ink-dim); transition: transform 0.2s; }
+    .panel[open] > summary::after { transform: rotate(180deg); }
+    .panel-body { padding: 0 16px 14px; font-size: 0.9rem; color: var(--ink-2); }
+    .row { padding: 8px 0; border-top: 1px solid var(--hairline); }
+    .row:first-child { border-top: 0; }
+    .row-title { font-weight: 700; color: var(--ink); }
+    .muted { color: var(--ink-dim); font-size: 0.82rem; }
+    .perk-list { margin: 4px 0 0 18px; }
+
+    .pack-progress { font-size: 0.82rem; color: var(--ink-dim); margin: -4px 0 10px; }
+    .pack-cat { font-weight: 700; color: var(--ink); margin: 10px 0 4px; }
+    .pack-item { display: flex; gap: 8px; align-items: center; padding: 3px 0; }
+    .pack-item input { accent-color: var(--fir); width: 16px; height: 16px; flex: 0 0 auto; }
+    .pack-item input:checked + label { color: var(--ink-dim); text-decoration: line-through; }
+    .pack-reset { margin-top: 10px; font: 600 0.8rem var(--font-body); background: none; border: 1px solid var(--hairline); color: var(--ink-dim); border-radius: 999px; padding: 4px 12px; cursor: pointer; }
+
+    footer { text-align: center; font-size: 0.78rem; color: var(--ink-dim); padding: 10px 16px 40px; }
+    #versionTag.stale { color: var(--alert); font-weight: 600; }
+
+    .back-to-top {
+      position: fixed; right: 16px; bottom: calc(18px + env(safe-area-inset-bottom));
+      width: 44px; height: 44px; border-radius: 50%; border: 0;
+      background: var(--river); color: #fff; font-size: 1.2rem; box-shadow: var(--shadow);
+      opacity: 0; pointer-events: none; transition: opacity 0.2s; cursor: pointer;
+    }
+    .back-to-top.show { opacity: 1; pointer-events: auto; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-kicker">David &amp; Paula · Portland, OR 🌲</div>
+      <h1>Portland 2026</h1>
+      <div class="hero-meta">
+        <span>Fri Nov 6 – Sun Nov 8</span> ·
+        <span>🃏 Card shops</span> ·
+        <span>🍷 Willamette Valley</span>
+      </div>
+      <div class="countdown" id="tripCountdown"></div>
+    </div>
+  </header>
+
+  <nav class="nav" aria-label="Days">
+    <div class="nav-inner" id="dayPills"></div>
+  </nav>
+
+  <main>
+    <div id="dayCards"></div>
+
+    <h2 class="section-title" id="travel">Travel &amp; Stay</h2>
+    <details class="panel" open>
+      <summary>🚗 Drive · 🏨 Ritz-Carlton</summary>
+      <div class="panel-body" id="travelGrid"></div>
+    </details>
+
+    <h2 class="section-title" id="resources">Resources</h2>
+    <div id="resourcesList"></div>
+
+    <h2 class="section-title" id="packing">Packing</h2>
+    <details class="panel">
+      <summary>🧳 Packing list</summary>
+      <div class="panel-body">
+        <div class="pack-progress" id="packProgress"></div>
+        <div id="packList"></div>
+        <button class="pack-reset" id="packReset">Uncheck all</button>
+      </div>
+    </details>
+  </main>
+
+  <footer>
+    <div>Made for David &amp; Paula · works offline once loaded</div>
+    <div id="versionTag">App version: checking…</div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <script>
+    // ============================================================
+    // TRIP CONSTANTS
+    // ============================================================
+    const TRIP_YEAR = 2026;
+    const TRIP_MONTH = 10; // JS month index — November
+    const TRIP_DAYS = [6, 7, 8];
+    const APP_CACHE_PREFIX = 'portland-2026-';
+
+    // Portland averages for early November — static fallback when offline
+    const NOV_AVG = { hiF: 55, loF: 43, icon: '🌦️', desc: 'Early-November average', rain: '~55%', live: false };
+
+    // Public site: no confirmation numbers, prices, card details or email addresses anywhere in this file.
+    const HOTEL_QUERY = 'The Ritz-Carlton, Portland, 900 SW Washington St, Portland, OR 97205';
+
+    // ============================================================
+    // TRAVEL DATA
+    // ============================================================
+    const travelData = {
+      driveDown: {
+        label: '🚗 Drive down',
+        when: 'Fri Nov 6 · leave Seattle 10:00 AM',
+        route: 'I-5 south → at <strong>Salmon Creek</strong> take the <strong>I-205 split</strong> (don\'t stay on I-5) → Vancouver, WA → Oregon City → Portland'
+      },
+      driveHome: {
+        label: '🚗 Drive home',
+        when: 'Sun Nov 8 · leave 1:00 PM',
+        route: 'Portland → Seattle, about 3 hours'
+      },
+      hotel: {
+        name: 'The Ritz-Carlton, Portland',
+        address: '900 SW Washington St, Portland, OR 97205',
+        mapsQuery: HOTEL_QUERY,
+        checkIn: 'Fri Nov 6 · 4:00 PM (early check-in if available)',
+        checkOut: 'Sun Nov 8 · 12:00 PM (late check-out if available)',
+        perks: [
+          'Daily breakfast for 2',
+          'Property credit: good for dining, spa, etc., <strong>not</strong> the room rate',
+          'Early check-in / late check-out, if available'
+        ],
+        amenities: 'Spa + infinity pool on the <strong>19th floor</strong> · <strong>Bellpine</strong> restaurant on the <strong>20th</strong>',
+        parking: 'Valet (daily fee) · self-park garage not picked yet'
+      }
+    };
+
+    // ============================================================
+    // DAY DATA — edit this to change the itinerary. Don't hand-write card HTML.
+    // Stop fields: time, emoji, name, details, link, mapsQuery, mapsLinks [{label, q}],
+    //   walkTo, walkMapsQuery, transportDir {name, steps[{icon,text}], time}, checklist[],
+    //   reservation (string), included (string), pick (who), optional (bool), suggested (bool),
+    //   confirm (string), alert (string), tbd (string), options [{name, details, link, mapsQuery}]
+    // suggested: an idea, NOT booked. tbd: a fact or decision we don't have yet — never guess.
+    // confirm: a fact we have but must check before relying on it (shows a "confirm before going" box).
+    // ============================================================
+    const dayData = [
+      {
+        number: 6,
+        date: 'Friday, November 6',
+        theme: '🃏 Card shops · Ritz · Dolly Olive',
+        weather: { ...NOV_AVG },
+        stops: [
+          {
+            time: '10:00 am',
+            emoji: '🚗',
+            name: 'Leave Seattle',
+            details: 'Head south on I-5. <strong>At Salmon Creek, take the I-205 split instead of staying on I-5.</strong> I-205 runs past both card shops today.',
+            transportDir: {
+              name: '🚗 Seattle → Vancouver, WA',
+              steps: [
+                { icon: 'board', text: 'Seattle → I-5 south' },
+                { icon: 'transfer', text: 'At <strong>Salmon Creek</strong>, take the <strong>I-205</strong> split (don\'t stay on I-5)' },
+                { icon: 'exit', text: 'Exit for Columbia Hobby &amp; SportsCards, Vancouver, WA (confirm which address first)' }
+              ],
+              time: 'Aim to arrive ~1:00 PM'
+            }
+          },
+          {
+            time: '1:00 pm',
+            emoji: '🃏',
+            name: 'Columbia Hobby & SportsCards',
+            details: 'Vancouver, WA · <a href="tel:+13606354400">360-635-4400</a>. Grab lunch nearby before heading on to Oregon City.',
+            confirm: '<b>Confirm before going:</b> we have two addresses on file. Call <a href="tel:+13606354400">360-635-4400</a> to check which one is right.',
+            mapsLinks: [
+              { label: '2707 NE 114th Ave Ste 3', q: '2707 NE 114th Ave Ste 3, Vancouver, WA' },
+              { label: '15644 NE Fourth Plain Blvd', q: '15644 NE Fourth Plain Blvd, Vancouver, WA' }
+            ],
+            tbd: 'Lunch spot not picked'
+          },
+          {
+            time: '2:15 pm',
+            emoji: '🃏',
+            name: 'ORB Sports Cards & Collectibles',
+            pick: 'Paula',
+            details: '1900 McLoughlin Blvd Ste 127, Oregon City, OR 97045. Open <strong>daily 11 am–7 pm</strong>. Stay on I-205 to get there.',
+            mapsQuery: 'ORB Sports Cards & Collectibles, 1900 McLoughlin Blvd Ste 127, Oregon City, OR 97045'
+          },
+          {
+            time: '3:30 pm',
+            emoji: '🏨',
+            name: 'Check in at the Ritz-Carlton',
+            details: '900 SW Washington St, about 25 min north of Oregon City. Check-in is 4:00 PM; ask for <strong>early check-in</strong> (a perk, if a room is ready). Parking: valet, or self-park in a nearby garage.',
+            mapsQuery: HOTEL_QUERY,
+            tbd: 'Self-park garage not picked yet'
+          },
+          {
+            time: '4:00 pm',
+            emoji: '😴',
+            name: 'Rest',
+            details: 'Settle in. The spa and infinity pool are on the 19th floor.',
+            walkTo: '~12 min walk to Dolly Olive · leave by ~6:15',
+            walkMapsQuery: 'Dolly Olive, 527 SW 12th Ave, Portland, OR 97205'
+          },
+          {
+            time: '6:30 pm',
+            emoji: '🫒',
+            name: 'Dinner: Dolly Olive',
+            details: '527 SW 12th Ave, Portland, OR 97205 · <a href="tel:+15037196921">(503) 719-6921</a>. <strong>10-minute grace period</strong>, so don\'t cut it close. <strong>Bar Dolly</strong>\'s entrance is around the corner at 1215 SW Alder St.',
+            reservation: 'Reserved · 10-min grace period',
+            mapsQuery: 'Dolly Olive, 527 SW 12th Ave, Portland, OR 97205'
+          }
+        ]
+      },
+      {
+        number: 7,
+        date: 'Saturday, November 7',
+        theme: '🍷 Willamette Valley wine day',
+        isWine: true,
+        weather: { ...NOV_AVG },
+        stops: [
+          {
+            time: '8:30 am',
+            emoji: '🥐',
+            name: 'Breakfast at the Ritz',
+            included: 'Included'
+          },
+          {
+            time: '9:35 am',
+            emoji: '🚗',
+            name: 'Drive to Newberg',
+            details: 'About 50 min southwest to Eminent Domaine.',
+            mapsQuery: 'Eminent Domaine, 20875 NE Ribbon Ridge Rd, Newberg, OR 97132',
+            tbd: 'Decide on a designated driver before you leave'
+          },
+          {
+            time: '10:30 am',
+            emoji: '🍷',
+            name: 'Eminent Domaine',
+            details: '20875 NE Ribbon Ridge Rd, Newberg, OR 97132 · <a href="tel:+15036871180">503-687-1180</a>. <strong>Classic Wine Tasting.</strong> <strong>70-minute visit limit</strong> · <strong>no food on site</strong> · no dogs.',
+            reservation: 'Classic Wine Tasting',
+            mapsQuery: 'Eminent Domaine, 20875 NE Ribbon Ridge Rd, Newberg, OR 97132'
+          },
+          {
+            time: '12:00 pm',
+            emoji: '🍇',
+            name: 'Anacréon Winery',
+            details: '17580 NE Dopp Rd, Newberg, OR 97132 · <a href="tel:+15035608711">503-560-8711</a>. <strong>Estate Tasting</strong>, indoor seating. Lunch from their <strong>Bistro Menu</strong>, which can be pre-added to the reservation.',
+            reservation: 'Estate Tasting · indoor seating',
+            alert: '<b>GPS warning:</b> the entrance is on <strong>NE Dopp Rd</strong>. Some GPS apps route to <strong>Calkins Lane</strong>, which has no access. The Maps button below uses the Dopp Rd address.',
+            mapsQuery: '17580 NE Dopp Rd, Newberg, OR 97132',
+            checklist: ['Pre-add Bistro Menu lunch to the reservation (optional)']
+          },
+          {
+            time: '2:15 pm',
+            emoji: '🃏',
+            name: 'Fable Hobby',
+            optional: true,
+            details: '4826 SW Scholls Ferry Rd, Portland, OR 97225. On the route back to the hotel.',
+            mapsQuery: 'Fable Hobby, 4826 SW Scholls Ferry Rd, Portland, OR 97225',
+            tbd: 'Hours unconfirmed: check before going'
+          },
+          {
+            time: '3:30 pm',
+            emoji: '🛁',
+            name: 'Rest at the hotel',
+            details: 'Spa, infinity pool (19th floor), or a nap.'
+          },
+          {
+            time: '7:00 pm',
+            emoji: '🍽️',
+            name: 'Dinner: still deciding',
+            details: 'Two options:',
+            options: [
+              {
+                name: 'Bellpine at the Ritz',
+                details: '20th floor of the hotel. Uses the hotel property credit. No driving or parking.'
+              },
+              {
+                name: 'Mox Boarding House',
+                details: '1938 W Burnside St. Restaurant plus a card shop. Validates 90 min of parking.',
+                mapsQuery: 'Mox Boarding House, 1938 W Burnside St, Portland, OR'
+              }
+            ],
+            tbd: 'Pick one'
+          }
+        ]
+      },
+      {
+        number: 8,
+        date: 'Sunday, November 8',
+        theme: '🎌 Stumptown Otaku · Home',
+        weather: { ...NOV_AVG },
+        stops: [
+          {
+            time: '9:00 am',
+            emoji: '🥐',
+            name: 'Breakfast at the Ritz',
+            included: 'Included',
+            walkTo: 'Walkable from the hotel',
+            walkMapsQuery: 'Stumptown Otaku, 133 SW 2nd Ave Ste 105, Portland, OR'
+          },
+          {
+            time: '11:00 am',
+            emoji: '🎌',
+            name: 'Stumptown Otaku',
+            details: '133 SW 2nd Ave Ste 105, Portland. Pokémon and Japanese imports.',
+            mapsQuery: 'Stumptown Otaku, 133 SW 2nd Ave Ste 105, Portland, OR'
+          },
+          {
+            time: '12:00 pm',
+            emoji: '🧳',
+            name: 'Check out',
+            details: 'Check-out is 12:00 PM. <strong>Ask about late check-out</strong> (a perk, if available).'
+          },
+          {
+            time: '1:00 pm',
+            emoji: '🚗',
+            name: 'Drive home to Seattle',
+            details: 'About 3 hours.',
+            mapsQuery: 'Seattle, WA'
+          }
+        ]
+      }
+    ];
+
+    // ============================================================
+    // RESOURCES — Oregon-specific
+    // ============================================================
+    const resources = [
+      {
+        title: '🍷 Wine day tips',
+        rows: [
+          ['Driver', 'Decide on a designated driver before leaving the hotel.'],
+          ['Food', 'Eminent Domaine has <strong>no food on site</strong>; eat a good breakfast. Lunch is at Anacréon.'],
+          ['Anacréon entrance', 'Use <strong>NE Dopp Rd</strong>. Some GPS apps send you to Calkins Lane, which has no access.']
+        ]
+      },
+      {
+        title: '💵 Money',
+        rows: [
+          ['Sales tax', 'Oregon has <strong>no sales tax</strong>. Washington does, so Friday\'s first stop in Vancouver, WA will add it.'],
+          ['Tipping', 'Same as Seattle.']
+        ]
+      },
+      {
+        title: '🚑 Emergency & health',
+        rows: [
+          ['Emergency', '<a href="tel:911">911</a>: police, fire, ambulance.'],
+          ['Hospital', `<a href="${mapsSearch('emergency room near 900 SW Washington St, Portland, OR')}" target="_blank" rel="noopener">Find the nearest emergency room</a>.`],
+          ['Pharmacy', `<a href="${mapsSearch('pharmacy near 900 SW Washington St, Portland, OR')}" target="_blank" rel="noopener">Find the nearest pharmacy</a>.`]
+        ]
+      },
+      {
+        title: '🚗 Getting around',
+        rows: [
+          ['Car', 'You drive down. Friday\'s card shops and Saturday\'s wineries need the car; downtown dinners and Stumptown Otaku are walkable.'],
+          ['Parking', 'Ritz-Carlton valet (daily fee), or self-park in a nearby garage (not picked yet). Mox Boarding House validates 90 min.'],
+          ['Gas', 'Oregon now allows self-serve, but many stations still have attendants. If one walks over, let them pump.']
+        ]
+      },
+      {
+        title: '💡 Ideas not yet scheduled',
+        rows: [
+          ['Powell\'s City of Books', '1005 W Burnside St. A huge new-and-used bookstore, also on W Burnside, east of Mox Boarding House.']
+        ]
+      }
+    ];
+
+    // ============================================================
+    // PACKING — per-item state in localStorage `pack-pdx-{id}`
+    // ============================================================
+    const packingList = {
+      '🪪 Documents & money': [
+        ['license', 'Driver\'s licenses (both)'],
+        ['cards', 'Credit cards'],
+        ['hotel-email', 'Hotel confirmation email handy on your phone']
+      ],
+      '🃏 Card shops': [
+        ['wantlist', 'Want lists'],
+        ['toploaders', 'Top loaders / sleeves for new pickups'],
+        ['tote', 'Tote bag']
+      ],
+      '🧥 Clothes (November: cool & rainy)': [
+        ['rain', 'Rain jacket'],
+        ['layers', 'Warm layers'],
+        ['walkers', 'Comfortable walking shoes'],
+        ['dinner', 'Nice outfit for Dolly Olive'],
+        ['swim', 'Swimsuits (infinity pool)'],
+        ['umbrella', 'Compact umbrella']
+      ],
+      '🚗 Car & tech': [
+        ['chargers', 'Phone chargers + car charger'],
+        ['snacks', 'Water + snacks for wine day'],
+        ['meds', 'Prescriptions + pain relievers']
+      ]
+    };
+
+    // ============================================================
+    // WEATHER — Open-Meteo, imperial primary. Offline → NOV_AVG stays.
+    // ============================================================
+    const WMO_CODES = {
+      0: ['☀️', 'Clear'], 1: ['🌤️', 'Mainly clear'], 2: ['⛅', 'Partly cloudy'], 3: ['☁️', 'Overcast'],
+      45: ['🌫️', 'Fog'], 48: ['🌫️', 'Fog'],
+      51: ['🌦️', 'Light drizzle'], 53: ['🌦️', 'Drizzle'], 55: ['🌧️', 'Heavy drizzle'],
+      61: ['🌦️', 'Light rain'], 63: ['🌧️', 'Rain'], 65: ['🌧️', 'Heavy rain'],
+      80: ['🌦️', 'Showers'], 81: ['🌧️', 'Showers'], 82: ['⛈️', 'Heavy showers'],
+      95: ['⛈️', 'Thunderstorm']
+    };
+    const fToC = f => Math.round((f - 32) * 5 / 9);
+
+    function weatherBarInner(w) {
+      return `
+        <span class="weather-icon">${w.icon}</span>
+        <span><span class="weather-temp">${w.hiF}° / ${w.loF}°F</span><span class="metric-pill">${fToC(w.hiF)}° / ${fToC(w.loF)}°C</span></span>
+        <span class="weather-rain">☔ ${w.rain}</span>
+        <span class="weather-src">${w.live ? 'Live forecast' : 'Nov average'}</span>`;
+    }
+
+    function fetchWeather() {
+      const url = 'https://api.open-meteo.com/v1/forecast?latitude=45.5152&longitude=-122.6784' +
+        '&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max,weathercode' +
+        '&temperature_unit=fahrenheit&timezone=America%2FLos_Angeles&forecast_days=16';
+      fetch(url)
+        .then(r => r.json())
+        .then(data => {
+          if (!data.daily || !data.daily.time) return;
+          const d = data.daily;
+          dayData.forEach(day => {
+            const key = `${TRIP_YEAR}-${String(TRIP_MONTH + 1).padStart(2, '0')}-${String(day.number).padStart(2, '0')}`;
+            const i = d.time.indexOf(key);
+            if (i < 0 || d.temperature_2m_max[i] === null) return;
+            const [icon, desc] = WMO_CODES[d.weathercode[i]] || ['⛅', 'Partly cloudy'];
+            day.weather = {
+              hiF: Math.round(d.temperature_2m_max[i]),
+              loF: Math.round(d.temperature_2m_min[i]),
+              icon, desc,
+              rain: `${d.precipitation_probability_max[i] || 0}%`,
+              live: true
+            };
+            const bar = document.querySelector(`[data-weather-day="${day.number}"]`);
+            if (bar) { bar.innerHTML = weatherBarInner(day.weather); bar.title = desc; }
+          });
+        })
+        .catch(err => console.log('[Weather] Offline, using November averages:', err.message));
+    }
+
+    // ============================================================
+    // DATE HELPERS
+    // ============================================================
+    function tripDayForDate(d) {
+      if (d.getFullYear() !== TRIP_YEAR || d.getMonth() !== TRIP_MONTH) return null;
+      return TRIP_DAYS.includes(d.getDate()) ? d.getDate() : null;
+    }
+
+    function parseStopTime(timeStr, baseDate) {
+      if (!timeStr || typeof timeStr !== 'string') return null;
+      const m = timeStr.trim().toLowerCase().replace(/^~/, '').match(/^(\d{1,2}):(\d{2})\s*(am|pm)?/);
+      if (!m) return null;
+      let hr = parseInt(m[1], 10);
+      const min = parseInt(m[2], 10);
+      if (m[3] === 'pm' && hr < 12) hr += 12;
+      if (m[3] === 'am' && hr === 12) hr = 0;
+      const out = new Date(baseDate);
+      out.setHours(hr, min, 0, 0);
+      return out;
+    }
+
+    const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40);
+
+    // ============================================================
+    // RENDER — day pills + day cards
+    // ============================================================
+    function mapsSearch(q) { return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`; }
+    function mapsWalk(q) { return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(q)}&travelmode=walking`; }
+    // Keep highway names like I-205 from breaking at the hyphen
+    const noBreakHwy = html => html.replace(/\bI-(\d+)\b/g, '<span class="nw">I-$1</span>');
+    const mapsBtn = (q, label = 'Open in Maps') => `<a href="${mapsSearch(q)}" target="_blank" rel="noopener" class="maps-btn">📍 ${label}</a>`;
+
+    function renderPills() {
+      const todayDay = tripDayForDate(new Date());
+      const pills = dayData.map(day => {
+        const wk = day.date.split(',')[0].slice(0, 3);
+        const cls = ['pill', day.isWine ? 'wine' : '', day.number === todayDay ? 'today' : ''].filter(Boolean).join(' ');
+        return `<a class="${cls}" href="#day-${day.number}" data-day="${day.number}">${wk} ${day.number}${day.isWine ? ' 🍷' : ''}</a>`;
+      }).join('');
+      document.getElementById('dayPills').innerHTML = pills +
+        `<a class="pill aux" href="#travel">🚗 Travel</a>` +
+        `<a class="pill aux" href="#resources">ℹ️ Resources</a>` +
+        `<a class="pill aux" href="#packing">🧳 Packing</a>`;
+    }
+
+    function renderDayCards() {
+      const container = document.getElementById('dayCards');
+      const todayDay = tripDayForDate(new Date());
+
+      container.innerHTML = dayData.map((day, dayIdx) => {
+        const expanded = day.number === todayDay ? 'expanded today-card' : (!todayDay && dayIdx === 0 ? 'expanded' : '');
+        const cls = ['day-card', expanded, day.isWine ? 'wine-day' : ''].filter(Boolean).join(' ');
+        const badges = day.isWine ? '<span class="badge wine">🍷 Wine country · Newberg</span>' : '';
+
+        return `
+        <section class="${cls}" id="day-${day.number}" data-day="${day.number}">
+          <div class="day-card-header" role="button" tabindex="0" aria-expanded="${expanded ? 'true' : 'false'}">
+            <div>
+              <div class="day-num-row">
+                <span class="day-number">${day.number}</span>
+                <span class="day-weekday">${day.date.split(',')[0]} · Day ${dayIdx + 1}</span>
+              </div>
+              <div class="day-theme">${day.theme}</div>
+              ${badges ? `<div class="day-badges">${badges}</div>` : ''}
+            </div>
+            <div class="day-toggle">▾</div>
+          </div>
+          <div class="day-content">
+            ${day.isWine ? `<div class="day-note">🍷 <b>Wine day.</b> Pick a designated driver before you leave. Eminent Domaine has no food, so eat a good breakfast.</div>` : ''}
+            <div class="weather-bar" data-weather-day="${day.number}" title="${day.weather.desc}">${weatherBarInner(day.weather)}</div>
+            <div class="stop-list">
+              ${day.stops.map((stop, idx) => renderStop(day, stop, idx)).join('')}
+            </div>
+          </div>
+        </section>`;
+      }).join('');
+    }
+
+    function renderStop(day, stop, idx) {
+      const stopCls = ['stop', stop.optional ? 'optional' : ''].filter(Boolean).join(' ');
+      const hasTransport = !!stop.transportDir;
+      const actions = [
+        stop.mapsQuery && !hasTransport ? mapsBtn(stop.mapsQuery) : '',
+        ...(stop.mapsLinks || []).map(l => mapsBtn(l.q, l.label)),
+        stop.included ? `<span class="tag incl">✓ ${stop.included}</span>` : '',
+        stop.reservation ? `<span class="tag res">📋 ${stop.reservation}</span>` : '',
+        stop.pick ? `<span class="tag pick">💖 ${stop.pick}'s pick</span>` : '',
+        stop.optional ? `<span class="tag opt">Optional</span>` : '',
+        stop.suggested ? `<span class="tag sugg">💡 Suggested, not booked</span>` : ''
+      ].join('');
+
+      return `
+        <div class="${stopCls}" data-stop-idx="${idx}">
+          <div class="stop-time">${stop.time}</div>
+          <div class="stop-header">
+            <span class="stop-emoji">${stop.emoji}</span>
+            <span class="stop-name">${stop.link ? `<a href="${stop.link}" target="_blank" rel="noopener">${stop.name}</a>` : stop.name}</span>
+          </div>
+          ${stop.details ? `<div class="stop-details">${noBreakHwy(stop.details)}</div>` : ''}
+          ${stop.confirm ? `<div class="confirm-note">⚠️ ${stop.confirm}</div>` : ''}
+          ${stop.alert ? `<div class="alert-note">🚫 ${stop.alert}</div>` : ''}
+          ${stop.options ? `
+            <div class="options">
+              ${stop.options.map((o, i) => `
+                <div class="option">
+                  <div class="option-k">Option ${String.fromCharCode(65 + i)}</div>
+                  <div class="option-name">${o.link ? `<a href="${o.link}" target="_blank" rel="noopener">${o.name}</a>` : o.name}</div>
+                  ${o.details ? `<div class="stop-details">${o.details}</div>` : ''}
+                  ${o.mapsQuery ? mapsBtn(o.mapsQuery) : ''}
+                </div>`).join('')}
+            </div>` : ''}
+          ${stop.checklist ? `
+            <div class="stop-checklist">
+              ${stop.checklist.map((item, i) => {
+                const key = `d${day.number}-${slug(stop.name)}-${slug(item)}`;
+                const id = `chk-${day.number}-${idx}-${i}`;
+                return `<div class="stop-checklist-item"><input type="checkbox" id="${id}" data-key="${key}"><label for="${id}">${item}</label></div>`;
+              }).join('')}
+            </div>` : ''}
+          ${stop.tbd ? `<div class="tbd-note">⚠️ TBD: ${stop.tbd}</div>` : ''}
+          ${actions.trim() ? `<div class="stop-actions">${actions}</div>` : ''}
+          ${hasTransport ? `
+            <div class="inline-transport">
+              <div class="inline-transport-title">${stop.transportDir.name}</div>
+              ${stop.transportDir.steps.map(s => `
+                <div class="transport-step">
+                  <div class="transport-step-icon step-${s.icon}">${getStepIcon(s.icon)}</div>
+                  <span>${noBreakHwy(s.text)}</span>
+                </div>`).join('')}
+              <div class="transport-time">${stop.transportDir.time}</div>
+              ${stop.mapsQuery ? `<div style="margin-top:8px">${mapsBtn(stop.mapsQuery)}</div>` : ''}
+            </div>` : ''}
+        </div>
+        ${stop.walkTo ? `
+          <div class="walk-transition">
+            <span>🚶 ${stop.walkTo}</span>
+            ${stop.walkMapsQuery ? `<a href="${mapsWalk(stop.walkMapsQuery)}" target="_blank" rel="noopener" class="walk-maps">Walk →</a>` : ''}
+          </div>` : ''}`;
+    }
+
+    function getStepIcon(type) {
+      return { board: '▶', ride: '↓', transfer: '⇄', exit: '■', walk: '🚶' }[type] || '•';
+    }
+
+    // ============================================================
+    // TRAVEL / RESOURCES / PACKING
+    // ============================================================
+    function renderTravelCard() {
+      const grid = document.getElementById('travelGrid');
+      // typeof, not window.travelData — top-level const doesn't attach to window (London bug)
+      if (!grid || typeof travelData === 'undefined') return;
+      const { driveDown, driveHome, hotel } = travelData;
+      const leg = l => `
+        <div class="row">
+          <div class="row-title">${l.label}</div>
+          <strong>${l.when}</strong><br>
+          ${noBreakHwy(l.route)}
+        </div>`;
+      grid.innerHTML = `
+        ${leg(driveDown)}
+        ${leg(driveHome)}
+        <div class="row">
+          <div class="row-title">🏨 ${hotel.name}</div>
+          <a href="${mapsSearch(hotel.mapsQuery)}" target="_blank" rel="noopener">${hotel.address}</a><br>
+          Check-in: <strong>${hotel.checkIn}</strong><br>Check-out: <strong>${hotel.checkOut}</strong>
+          <ul class="perk-list">${hotel.perks.map(p => `<li>${p}</li>`).join('')}</ul>
+          <div style="margin-top:4px">${hotel.amenities}</div>
+          <div class="muted" style="margin-top:4px">🅿️ ${hotel.parking}</div>
+        </div>`;
+    }
+
+    function renderResources() {
+      document.getElementById('resourcesList').innerHTML = resources.map(g => `
+        <details class="panel">
+          <summary>${g.title}</summary>
+          <div class="panel-body">
+            ${g.rows.map(([k, v]) => `<div class="row"><div class="row-title">${k}</div>${v}</div>`).join('')}
+          </div>
+        </details>`).join('');
+    }
+
+    function renderPacking() {
+      const el = document.getElementById('packList');
+      el.innerHTML = Object.entries(packingList).map(([cat, items]) => `
+        <div class="pack-cat">${cat}</div>
+        ${items.map(([id, text]) => `
+          <div class="pack-item">
+            <input type="checkbox" id="pack-${id}" data-pack="${id}" ${lsGet(`pack-pdx-${id}`) === '1' ? 'checked' : ''}>
+            <label for="pack-${id}">${text}</label>
+          </div>`).join('')}`).join('');
+      updatePackProgress();
+    }
+
+    function updatePackProgress() {
+      const all = document.querySelectorAll('[data-pack]');
+      const done = [...all].filter(c => c.checked).length;
+      document.getElementById('packProgress').textContent = `${done} of ${all.length} packed`;
+    }
+
+    // ============================================================
+    // PERSISTENCE — namespaced keys: portland2026-checked, pack-pdx-*
+    // ============================================================
+    function lsGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+    function lsSet(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } }
+    function lsDel(k) { try { localStorage.removeItem(k); } catch (e) { /* private mode */ } }
+
+    function getChecked() {
+      try { return JSON.parse(lsGet('portland2026-checked') || '{}'); } catch (e) { return {}; }
+    }
+
+    function setupChecklists() {
+      const checked = getChecked();
+      document.querySelectorAll('.stop-checklist input[data-key]').forEach(cb => {
+        cb.checked = !!checked[cb.dataset.key];
+        cb.addEventListener('change', () => {
+          const c = getChecked();
+          if (cb.checked) c[cb.dataset.key] = true; else delete c[cb.dataset.key];
+          lsSet('portland2026-checked', JSON.stringify(c));
+        });
+      });
+    }
+
+    // ============================================================
+    // TODAY FOCUS + NOW BADGE
+    // ============================================================
+    function updateNowBadge() {
+      try {
+        document.querySelectorAll('.stop.now').forEach(el => el.classList.remove('now'));
+        const now = new Date();
+        const dayNum = tripDayForDate(now);
+        if (!dayNum) return;
+        const day = dayData.find(d => d.number === dayNum);
+        const card = document.querySelector(`.day-card[data-day="${dayNum}"]`);
+        if (!day || !card) return;
+        let pastIdx = -1, upIdx = -1, pastDiff = Infinity, upDiff = Infinity;
+        day.stops.forEach((s, i) => {
+          const t = parseStopTime(s.time, now);
+          if (!t) return;
+          const diff = now - t;
+          if (diff >= 0 && diff < pastDiff) { pastDiff = diff; pastIdx = i; }
+          if (diff < 0 && -diff < upDiff) { upDiff = -diff; upIdx = i; }
+        });
+        const chosen = pastIdx >= 0 ? pastIdx : upIdx;
+        const el = chosen >= 0 && card.querySelector(`.stop[data-stop-idx="${chosen}"]`);
+        if (el) el.classList.add('now');
+      } catch (e) { console.warn('[now-badge]', e); }
+    }
+
+    function initTodayFocus() {
+      const dayNum = tripDayForDate(new Date());
+      if (dayNum) {
+        const card = document.querySelector(`.day-card[data-day="${dayNum}"]`);
+        if (card) setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'start' }), 300);
+      }
+      updateNowBadge();
+      setInterval(() => { if (document.visibilityState === 'visible') updateNowBadge(); }, 5 * 60 * 1000);
+      document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') updateNowBadge(); });
+    }
+
+    function renderTripCountdown() {
+      const el = document.getElementById('tripCountdown');
+      const now = new Date();
+      const first = TRIP_DAYS[0];
+      const start = new Date(TRIP_YEAR, TRIP_MONTH, first);
+      const end = new Date(TRIP_YEAR, TRIP_MONTH, TRIP_DAYS[TRIP_DAYS.length - 1] + 1);
+      const days = Math.ceil((start - now) / 86400000);
+      if (now < start) el.textContent = `⏳ ${days} day${days === 1 ? '' : 's'} to go`;
+      else if (now < end) el.textContent = `📍 Day ${now.getDate() - first + 1} of ${TRIP_DAYS.length}`;
+      else el.hidden = true;
+    }
+
+    // ============================================================
+    // VERSION TAG — installed cache vs deployed sw.js (self-diagnose stale PWA)
+    // ============================================================
+    async function updateVersionTag() {
+      const el = document.getElementById('versionTag');
+      if (!el) return;
+      const parseVer = s => { const m = s && s.match(/v(\d+)/); return m ? parseInt(m[1], 10) : null; };
+      try {
+        let installed = null;
+        if ('caches' in window) {
+          const keys = await caches.keys();
+          const match = keys.filter(k => k.startsWith(APP_CACHE_PREFIX))
+            .sort((a, b) => (parseVer(b) || 0) - (parseVer(a) || 0))[0];
+          if (match) installed = match.replace(APP_CACHE_PREFIX, '');
+        }
+        let latest = null;
+        try {
+          const r = await fetch('./sw.js?nocache=' + Date.now(), { cache: 'no-store' });
+          if (r.ok) {
+            const m = (await r.text()).match(/CACHE_NAME\s*=\s*'portland-2026-(v\d+)'/);
+            if (m) latest = m[1];
+          }
+        } catch (e) { /* offline */ }
+
+        el.classList.remove('stale');
+        if (installed && latest && installed === latest) {
+          el.textContent = `App version: ${installed} ✓`;
+        } else if (installed && latest && parseVer(installed) < parseVer(latest)) {
+          el.textContent = `Installed: ${installed} · Latest: ${latest}. Fully close and reopen the app to update`;
+          el.classList.add('stale');
+        } else if (installed) {
+          el.textContent = `App version: ${installed}`;
+        } else if (latest) {
+          el.textContent = `App version: ${latest} (offline copy will be ready after the next reload)`;
+        } else {
+          el.textContent = 'App version: unknown';
+        }
+      } catch (e) {
+        el.textContent = 'App version: unknown';
+      }
+    }
+
+    // ============================================================
+    // EVENTS
+    // ============================================================
+    function setupEventListeners() {
+      document.getElementById('dayCards').addEventListener('click', e => {
+        const header = e.target.closest('.day-card-header');
+        if (!header) return;
+        const card = header.parentElement;
+        card.classList.toggle('expanded');
+        header.setAttribute('aria-expanded', card.classList.contains('expanded'));
+      });
+      document.getElementById('dayCards').addEventListener('keydown', e => {
+        if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('day-card-header')) {
+          e.preventDefault();
+          e.target.click();
+        }
+      });
+      // Day pill → expand that day
+      document.getElementById('dayPills').addEventListener('click', e => {
+        const pill = e.target.closest('.pill[data-day]');
+        if (!pill) return;
+        const card = document.querySelector(`.day-card[data-day="${pill.dataset.day}"]`);
+        if (card) card.classList.add('expanded');
+      });
+      document.getElementById('packList').addEventListener('change', e => {
+        const cb = e.target.closest('[data-pack]');
+        if (!cb) return;
+        if (cb.checked) lsSet(`pack-pdx-${cb.dataset.pack}`, '1'); else lsDel(`pack-pdx-${cb.dataset.pack}`);
+        updatePackProgress();
+      });
+      document.getElementById('packReset').addEventListener('click', () => {
+        if (!confirm('Uncheck every packing item?')) return;
+        document.querySelectorAll('[data-pack]').forEach(cb => { cb.checked = false; lsDel(`pack-pdx-${cb.dataset.pack}`); });
+        updatePackProgress();
+      });
+      const btt = document.getElementById('backToTop');
+      window.addEventListener('scroll', () => btt.classList.toggle('show', window.scrollY > 600), { passive: true });
+      btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    }
+
+    function registerServiceWorker() {
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js').catch(err => console.log('SW registration failed:', err));
+      }
+    }
+
+    function init() {
+      renderPills();
+      renderDayCards();
+      setupChecklists();
+      renderTravelCard();
+      renderResources();
+      renderPacking();
+      renderTripCountdown();
+      setupEventListeners();
+      registerServiceWorker();
+      fetchWeather();      // non-blocking; offline → November averages stay
+      initTodayFocus();
+      updateVersionTag();
+    }
+
+    init();
+  </script>
+</body>
+</html>
