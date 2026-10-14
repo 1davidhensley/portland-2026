@@ -450,7 +450,7 @@
               steps: [
                 { icon: 'board', text: 'Seattle → I-5 south' },
                 { icon: 'transfer', text: 'At <strong>Salmon Creek</strong>, take the <strong>I-205</strong> split (don\'t stay on I-5)' },
-                { icon: 'exit', text: 'Exit for Columbia Hobby &amp; SportsCards, Vancouver, WA (confirm which address first)' }
+                { icon: 'exit', text: 'Exit for Columbia Sports Cards, 15644 NE Fourth Plain Blvd, Vancouver, WA' }
               ],
               time: 'Aim to arrive ~1:00 PM'
             }
@@ -458,13 +458,10 @@
           {
             time: '1:00 pm',
             emoji: '🃏',
-            name: 'Columbia Hobby & SportsCards',
-            details: 'Vancouver, WA · <a href="tel:+13606354400">360-635-4400</a>. Grab lunch nearby before heading on to Oregon City.',
-            confirm: '<b>Confirm before going:</b> we have two addresses on file. Call <a href="tel:+13606354400">360-635-4400</a> to check which one is right.',
-            mapsLinks: [
-              { label: '2707 NE 114th Ave Ste 3', q: '2707 NE 114th Ave Ste 3, Vancouver, WA' },
-              { label: '15644 NE Fourth Plain Blvd', q: '15644 NE Fourth Plain Blvd, Vancouver, WA' }
-            ],
+            name: 'Columbia Sports Cards & More',
+            link: 'https://columbiasportscard.com/',
+            details: '15644 NE Fourth Plain Blvd, Vancouver, WA 98682 · <a href="tel:+13606354400">360-635-4400</a>. Card-shop directories (not verified by the store) list it as opening at 10 am, so it should be open at 1:00. Grab lunch nearby before heading on to Oregon City.',
+            mapsQuery: 'Columbia Sports Cards & More, 15644 NE Fourth Plain Blvd, Vancouver, WA 98682',
             tbd: 'Lunch spot not picked'
           },
           {
@@ -517,10 +514,10 @@
           {
             time: '9:35 am',
             emoji: '🚗',
-            name: 'Drive to Newberg',
-            details: 'About 50 min southwest to Eminent Domaine.',
+            name: 'Driver picks you up → Newberg',
+            details: 'About 50 min southwest to Eminent Domaine. You\'re hiring a driver for the day: both wineries, the optional Fable Hobby stop, then back to the hotel. Give them the Anacréon entrance note (NE Dopp Rd, not Calkins Lane).',
             mapsQuery: 'Eminent Domaine, 20875 NE Ribbon Ridge Rd, Newberg, OR 97132',
-            tbd: 'Decide on a designated driver before you leave'
+            tbd: 'Driver not booked yet'
           },
           {
             time: '10:30 am',
@@ -556,13 +553,14 @@
             details: 'Spa, infinity pool (19th floor), or a nap.'
           },
           {
-            time: '7:00 pm',
+            time: '~7:00 pm',
             emoji: '🍕',
             name: 'Dinner: Detroit-style pizza at Ruse Brewing Crust Collective',
+            included: 'Flexible time · no reservation',
             link: 'https://www.rusebrewing.com/',
-            details: 'Ruse Brewing\'s Northwest Portland pizza &amp; taproom in Slabtown, 1505 NW 21st Ave, Portland, OR 97209 · <a href="tel:+19718885021">(971) 888-5021</a>. Listed hours: <strong>Sat 11:30 am–10 pm</strong>. About 2 miles northwest of the hotel. It\'s a brewery at the end of a wine day, so consider a rideshare instead of the car.',
+            details: 'Ruse Brewing\'s Northwest Portland pizza &amp; taproom in Slabtown, 1505 NW 21st Ave, Portland, OR 97209 · <a href="tel:+19718885021">(971) 888-5021</a>. Listed hours: <strong>Sat 11:30 am–10 pm</strong>, so go earlier or later depending on how the day runs. About 2 miles northwest of the hotel. It\'s a brewery at the end of a wine day, so consider a rideshare instead of the car.',
             mapsQuery: 'Ruse Brewing Crust Collective, 1505 NW 21st Ave, Portland, OR 97209',
-            confirm: '<b>Confirm before going:</b> Ruse\'s website says it\'s being updated and doesn\'t mention reservations or parking. Call <a href="tel:+19718885021">(971) 888-5021</a> to check hours and whether to book.'
+            confirm: '<b>Confirm before going:</b> Ruse\'s website says it\'s being updated. Call <a href="tel:+19718885021">(971) 888-5021</a> to check Saturday hours.'
           }
         ]
       },
@@ -611,7 +609,7 @@
       {
         title: '🍷 Wine day tips',
         rows: [
-          ['Driver', 'Decide on a designated driver before leaving the hotel.'],
+          ['Driver', 'You\'re hiring a driver for the day (not booked yet). Pickup at the hotel ~9:35 AM; first stop Eminent Domaine at 10:30.'],
           ['Food', 'Eminent Domaine has <strong>no food on site</strong>; eat a good breakfast. Lunch is at Anacréon.'],
           ['Anacréon entrance', 'Use <strong>NE Dopp Rd</strong>. Some GPS apps send you to Calkins Lane, which has no access.']
         ]
@@ -794,7 +792,7 @@
             <div class="day-toggle">▾</div>
           </div>
           <div class="day-content">
-            ${day.isWine ? `<div class="day-note">🍷 <b>Wine day.</b> Pick a designated driver before you leave. Eminent Domaine has no food, so eat a good breakfast.</div>` : ''}
+            ${day.isWine ? `<div class="day-note">🍷 <b>Wine day.</b> A hired driver is taking you today, so no one has to skip the tastings. Eminent Domaine has no food, so eat a good breakfast.</div>` : ''}
             <div class="weather-bar" data-weather-day="${day.number}" title="${day.weather.desc}">${weatherBarInner(day.weather)}</div>
             <div class="stop-list">
               ${day.stops.map((stop, idx) => renderStop(day, stop, idx)).join('')}

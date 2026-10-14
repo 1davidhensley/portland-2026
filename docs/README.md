@@ -8,7 +8,7 @@ An offline-capable, installable web app (PWA) for David & Paula's Portland, OR w
 
 ## What's in it
 
-- **Fri 6:** drive down (I-205 split at Salmon Creek), Columbia Hobby & SportsCards (Vancouver, WA), ORB Sports Cards (Oregon City), Ritz-Carlton check-in, dinner at Dolly Olive.
+- **Fri 6:** drive down (I-205 split at Salmon Creek), Columbia Sports Cards & More (Vancouver, WA), ORB Sports Cards (Oregon City), Ritz-Carlton check-in, dinner at Dolly Olive.
 - **Sat 7 (wine day):** Eminent Domaine and Anacréon in Newberg, optional Fable Hobby, rest, Detroit-style pizza at Ruse Brewing Crust Collective in Slabtown.
 - **Sun 8:** breakfast, Stumptown Otaku, check-out, drive home.
 - **Travel & Stay**, **Resources** (wine-day tips, money, emergency, getting around), **Packing** checklist.
@@ -43,7 +43,7 @@ Edit the data in `index.html`, not the HTML. Each day in `dayData` has `stops[]`
 |---|---|
 | `time`, `emoji`, `name`, `details` | Basics. `details` may contain simple HTML (`<strong>`, `<a href="tel:…">`). |
 | `mapsQuery` | Adds a 📍 Open in Maps button. |
-| `mapsLinks: [{label, q}]` | Extra Maps buttons, e.g. two possible addresses. |
+| `mapsLinks: [{label, q}]` | Extra Maps buttons, e.g. when there are two possible addresses. |
 | `walkTo`, `walkMapsQuery` | Dashed walking line after the stop, with a walking-directions link. |
 | `transportDir` | Step-by-step driving/transit box. |
 | `checklist: []` | Tickable items (saved on the phone). |
