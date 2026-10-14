@@ -11,5 +11,6 @@ Ideas for later. Nothing here is scheduled.
 - **Shared template:** pull the common renderer out of london/victoria/portland so the next trip app starts from data only.
 
 ## Trip ideas (not booked)
-- Powell's City of Books (1005 W Burnside St), on the same street as Mox Boarding House.
+- Powell's City of Books (1005 W Burnside St).
+- Mox Boarding House (1938 W Burnside St): restaurant plus a card shop.
 - More card shops along I-5 / I-205 for the drive home.

@@ -9,7 +9,7 @@ An offline-capable, installable web app (PWA) for David & Paula's Portland, OR w
 ## What's in it
 
 - **Fri 6:** drive down (I-205 split at Salmon Creek), Columbia Hobby & SportsCards (Vancouver, WA), ORB Sports Cards (Oregon City), Ritz-Carlton check-in, dinner at Dolly Olive.
-- **Sat 7 (wine day):** Eminent Domaine and Anacréon in Newberg, optional Fable Hobby, rest, dinner (Bellpine or Mox, undecided).
+- **Sat 7 (wine day):** Eminent Domaine and Anacréon in Newberg, optional Fable Hobby, rest, Detroit-style pizza at Ruse Brewing Crust Collective in Slabtown.
 - **Sun 8:** breakfast, Stumptown Otaku, check-out, drive home.
 - **Travel & Stay**, **Resources** (wine-day tips, money, emergency, getting around), **Packing** checklist.
 - Live weather from Open-Meteo once the trip is within 16 days. Before that, and when offline, it shows November averages.
@@ -54,7 +54,7 @@ Edit the data in `index.html`, not the HTML. Each day in `dayData` has `stops[]`
 | `confirm` | Amber "Confirm before going" box. |
 | `alert` | Red warning box (e.g. the Anacréon GPS issue). |
 | `tbd` | "⚠️ TBD: …" line. |
-| `options: [{name, details, mapsQuery}]` | Side-by-side choices (e.g. the undecided Saturday dinner). |
+| `options: [{name, details, mapsQuery}]` | Side-by-side choices for an undecided stop (used for Saturday dinner until v2). |
 
 Saturday has `isWine: true`, which gives it the wine accent color and the wine-day note.
 

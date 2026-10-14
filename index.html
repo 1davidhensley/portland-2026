@@ -416,11 +416,11 @@
         checkOut: 'Sun Nov 8 · 12:00 PM (late check-out if available)',
         perks: [
           'Daily breakfast for 2',
-          'Property credit: good for dining, spa, etc., <strong>not</strong> the room rate',
+          'Property credit: <strong>not</strong> usable on the room rate. Plan: put it toward valet (confirm at check-in)',
           'Early check-in / late check-out, if available'
         ],
         amenities: 'Spa + infinity pool on the <strong>19th floor</strong> · <strong>Bellpine</strong> restaurant on the <strong>20th</strong>',
-        parking: 'Valet (daily fee) · self-park garage not picked yet'
+        parking: 'Valet (daily fee) · plan to cover it with the property credit'
       }
     };
 
@@ -479,9 +479,9 @@
             time: '3:30 pm',
             emoji: '🏨',
             name: 'Check in at the Ritz-Carlton',
-            details: '900 SW Washington St, about 25 min north of Oregon City. Check-in is 4:00 PM; ask for <strong>early check-in</strong> (a perk, if a room is ready). Parking: valet, or self-park in a nearby garage.',
+            details: '900 SW Washington St, about 25 min north of Oregon City. Check-in is 4:00 PM; ask for <strong>early check-in</strong> (a perk, if a room is ready). Parking: <strong>valet</strong>.',
             mapsQuery: HOTEL_QUERY,
-            tbd: 'Self-park garage not picked yet'
+            checklist: ['Ask whether the property credit can cover valet']
           },
           {
             time: '4:00 pm',
@@ -557,21 +557,12 @@
           },
           {
             time: '7:00 pm',
-            emoji: '🍽️',
-            name: 'Dinner: still deciding',
-            details: 'Two options:',
-            options: [
-              {
-                name: 'Bellpine at the Ritz',
-                details: '20th floor of the hotel. Uses the hotel property credit. No driving or parking.'
-              },
-              {
-                name: 'Mox Boarding House',
-                details: '1938 W Burnside St. Restaurant plus a card shop. Validates 90 min of parking.',
-                mapsQuery: 'Mox Boarding House, 1938 W Burnside St, Portland, OR'
-              }
-            ],
-            tbd: 'Pick one'
+            emoji: '🍕',
+            name: 'Dinner: Detroit-style pizza at Ruse Brewing Crust Collective',
+            link: 'https://www.rusebrewing.com/',
+            details: 'Ruse Brewing\'s Northwest Portland pizza &amp; taproom in Slabtown, 1505 NW 21st Ave, Portland, OR 97209 · <a href="tel:+19718885021">(971) 888-5021</a>. Listed hours: <strong>Sat 11:30 am–10 pm</strong>. About 2 miles northwest of the hotel. It\'s a brewery at the end of a wine day, so consider a rideshare instead of the car.',
+            mapsQuery: 'Ruse Brewing Crust Collective, 1505 NW 21st Ave, Portland, OR 97209',
+            confirm: '<b>Confirm before going:</b> Ruse\'s website says it\'s being updated and doesn\'t mention reservations or parking. Call <a href="tel:+19718885021">(971) 888-5021</a> to check hours and whether to book.'
           }
         ]
       },
@@ -644,14 +635,15 @@
         title: '🚗 Getting around',
         rows: [
           ['Car', 'You drive down. Friday\'s card shops and Saturday\'s wineries need the car; downtown dinners and Stumptown Otaku are walkable.'],
-          ['Parking', 'Ritz-Carlton valet (daily fee), or self-park in a nearby garage (not picked yet). Mox Boarding House validates 90 min.'],
+          ['Parking', 'Ritz-Carlton valet (daily fee). The plan is to put the hotel property credit toward it; confirm at check-in.'],
           ['Gas', 'Oregon now allows self-serve, but many stations still have attendants. If one walks over, let them pump.']
         ]
       },
       {
         title: '💡 Ideas not yet scheduled',
         rows: [
-          ['Powell\'s City of Books', '1005 W Burnside St. A huge new-and-used bookstore, also on W Burnside, east of Mox Boarding House.']
+          ['Powell\'s City of Books', '1005 W Burnside St. A huge new-and-used bookstore, also on W Burnside.'],
+          ['Mox Boarding House', '1938 W Burnside St. Restaurant plus a card shop; validates 90 min of parking.']
         ]
       }
     ];

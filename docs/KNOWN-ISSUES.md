@@ -12,14 +12,15 @@
 - **Details:** Saturday 2:15 PM optional stop (4826 SW Scholls Ferry Rd). Shown with "⚠️ TBD: Hours unconfirmed".
 - **Fix when known:** add the hours to `details` and delete `tbd`.
 
-### 3. Saturday dinner not decided
+### 3. Ruse Brewing hours and reservations unconfirmed
 - **Status:** Open
-- **Options:** **Bellpine** at the Ritz (20th floor, uses the property credit) or **Mox Boarding House** (1938 W Burnside St; restaurant + card shop; validates 90 min of parking). Shown side by side with "⚠️ TBD: Pick one".
-- **Fix when decided:** replace `options` with the chosen place's `details` / `mapsQuery`, rename the stop, delete `tbd`.
+- **Details:** Saturday 7:00 PM dinner at Ruse Brewing Crust Collective (1505 NW 21st Ave, (971) 888-5021). Its website lists Sat 11:30 am–10 pm, but the site says it's being updated and doesn't mention reservations or parking. Shown as a "Confirm before going" box.
+- **Fix when known:** put the confirmed hours / reservation in `details` and delete `confirm`.
 
-### 4. Self-park garage not picked
-- **Status:** Open
-- **Details:** Ritz-Carlton valet has a daily fee; the self-park garage is TBD. Shown on the Friday 3:30 PM check-in stop and in Travel & Stay / Resources.
+### 4. Does the property credit cover valet?
+- **Status:** Open (ask at check-in Fri)
+- **Details:** The plan is to use valet and put the hotel property credit toward it. The credit can't go on the room rate; valet isn't confirmed either way. Shown as a checklist item on the Friday 3:30 PM check-in stop and in Travel & Stay / Resources.
+- **If it doesn't:** the credit can go toward Bellpine (20th floor) or the spa instead.
 
 ### 5. Saturday designated driver
 - **Status:** Open (decide before Saturday)
@@ -29,11 +30,20 @@
 - **Status:** By design
 - **Details:** GitHub Pages sites are public. The app has no confirmation numbers, prices, card details, or email addresses, and dollar amounts from the hotel perks and valet are left out on purpose. Keep it that way.
 
+## Resolved
+
+### Saturday dinner not decided
+- **Fixed in v2 (2026-10-13):** Detroit-style pizza at Ruse Brewing Crust Collective in Slabtown. Bellpine and Mox were the earlier options; Mox moved to Resources → Ideas.
+
+### Self-park garage not picked
+- **Fixed in v2 (2026-10-13):** Using valet instead; the property credit is meant to cover it (see open item 4).
+
 ## Version history
 
 | Version | Date | Change |
 |---|---|---|
 | v1 | 2026-10-13 | First release, built from the victoria-2026 template. Three days, Travel & Stay, Resources, Packing. |
+| v2 | 2026-10-13 | Saturday dinner set to Ruse Brewing Crust Collective (Detroit-style pizza, Slabtown). Parking plan: valet, paid with the property credit. Mox moved to Ideas. |
 
 ## Lessons carried over from london-2026 / victoria-2026
 - **Stale PWA cache:** bump `CACHE_NAME` on every content change. The footer version tag shows stale installs.
