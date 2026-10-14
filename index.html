@@ -515,7 +515,7 @@
             time: '9:35 am',
             emoji: '🚗',
             name: 'Driver picks you up → Newberg',
-            details: 'About 50 min southwest to Eminent Domaine. You\'re hiring a driver for the day: both wineries, the optional Fable Hobby stop, then back to the hotel. Give them the Anacréon entrance note (NE Dopp Rd, not Calkins Lane).',
+            details: 'About 50 min southwest to Eminent Domaine. You\'re hiring a driver for the day: both wineries, the LEGO Store, the optional Guardian Games stop, then back to the hotel. Give them the Anacréon entrance note (NE Dopp Rd, not Calkins Lane).',
             mapsQuery: 'Eminent Domaine, 20875 NE Ribbon Ridge Rd, Newberg, OR 97132',
             tbd: 'Driver not booked yet'
           },
@@ -539,15 +539,25 @@
           },
           {
             time: '2:15 pm',
-            emoji: '🃏',
-            name: 'Fable Hobby',
-            optional: true,
-            details: '4826 SW Scholls Ferry Rd, Portland, OR 97225. On the route back to the hotel.',
-            mapsQuery: 'Fable Hobby, 4826 SW Scholls Ferry Rd, Portland, OR 97225',
-            tbd: 'Hours unconfirmed: check before going'
+            emoji: '🧱',
+            name: 'LEGO Store Washington Square',
+            pick: 'Paula',
+            link: 'https://www.lego.com/en-us/stores/store/washington-square',
+            details: 'Washington Square mall, 9410 SW Washington Square Rd, Tigard, OR 97223 · <a href="tel:+19714622300">(971) 462-2300</a>. Open <strong>Sat 10 am–9 pm</strong>. On the drive back from Newberg (OR-99W → OR-217).',
+            mapsQuery: 'LEGO Store, Washington Square, 9410 SW Washington Square Rd, Tigard, OR 97223'
           },
           {
             time: '3:30 pm',
+            emoji: '🎲',
+            name: 'Guardian Games',
+            pick: 'Paula',
+            optional: true,
+            link: 'https://www.guardiangames.com/locations/portland',
+            details: '345 SE Taylor St, Portland, OR 97214 · <a href="tel:+15032384000">(503) 238-4000</a>. Open <strong>Sat 10 am–10 pm</strong>. Board games and trading card games. Just across the river from the hotel, so it\'s the last stop before the driver drops you off.',
+            mapsQuery: 'Guardian Games, 345 SE Taylor St, Portland, OR 97214'
+          },
+          {
+            time: '4:30 pm',
             emoji: '🛁',
             name: 'Rest at the hotel',
             details: 'Spa, infinity pool (19th floor), or a nap.'
@@ -567,7 +577,7 @@
       {
         number: 8,
         date: 'Sunday, November 8',
-        theme: '🎌 Stumptown Otaku · Home',
+        theme: '📚 Powell\'s · Home',
         weather: { ...NOV_AVG },
         stops: [
           {
@@ -575,15 +585,19 @@
             emoji: '🥐',
             name: 'Breakfast at the Ritz',
             included: 'Included',
-            walkTo: 'Walkable from the hotel',
-            walkMapsQuery: 'Stumptown Otaku, 133 SW 2nd Ave Ste 105, Portland, OR'
+            walkTo: '~12 min walk to Powell\'s · leave by ~9:45',
+            walkMapsQuery: 'Powell\'s City of Books, 1005 W Burnside St, Portland, OR 97209'
           },
           {
-            time: '11:00 am',
-            emoji: '🎌',
-            name: 'Stumptown Otaku',
-            details: '133 SW 2nd Ave Ste 105, Portland. Pokémon and Japanese imports.',
-            mapsQuery: 'Stumptown Otaku, 133 SW 2nd Ave Ste 105, Portland, OR'
+            time: '10:00 am',
+            emoji: '📚',
+            name: 'Powell\'s City of Books',
+            pick: 'Paula',
+            link: 'https://www.powells.com/locations/powells-city-of-books',
+            details: '1005 W Burnside St, Portland, OR 97209. Huge new-and-used bookstore. Opens <strong>10 am</strong> daily. You have until about 11:45 before walking back for check-out.',
+            mapsQuery: 'Powell\'s City of Books, 1005 W Burnside St, Portland, OR 97209',
+            walkTo: '~12 min walk back to the hotel · leave by ~11:45',
+            walkMapsQuery: HOTEL_QUERY
           },
           {
             time: '12:00 pm',
@@ -632,7 +646,7 @@
       {
         title: '🚗 Getting around',
         rows: [
-          ['Car', 'You drive down. Friday\'s card shops and Saturday\'s wineries need the car; downtown dinners and Stumptown Otaku are walkable.'],
+          ['Car', 'You drive down. Friday\'s card shops and Saturday\'s wineries need the car; Dolly Olive and Powell\'s are walkable.'],
           ['Parking', 'Ritz-Carlton valet (daily fee). The plan is to put the hotel property credit toward it; confirm at check-in.'],
           ['Gas', 'Oregon now allows self-serve, but many stations still have attendants. If one walks over, let them pump.']
         ]
@@ -640,7 +654,6 @@
       {
         title: '💡 Ideas not yet scheduled',
         rows: [
-          ['Powell\'s City of Books', '1005 W Burnside St. A huge new-and-used bookstore, also on W Burnside.'],
           ['Mox Boarding House', '1938 W Burnside St. Restaurant plus a card shop; validates 90 min of parking.']
         ]
       }

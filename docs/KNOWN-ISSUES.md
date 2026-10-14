@@ -2,11 +2,6 @@
 
 ## Open
 
-### 2. Fable Hobby hours unconfirmed
-- **Status:** Open
-- **Details:** Saturday 2:15 PM optional stop (4826 SW Scholls Ferry Rd). Shown with "⚠️ TBD: Hours unconfirmed".
-- **Fix when known:** add the hours to `details` and delete `tbd`.
-
 ### 3. Ruse Brewing hours unconfirmed
 - **Status:** Open
 - **Details:** Saturday ~7:00 PM dinner at Ruse Brewing Crust Collective (1505 NW 21st Ave, (971) 888-5021). **No reservation on purpose**, so dinner can move earlier or later. Its website lists Sat 11:30 am–10 pm, but the site says it's being updated. Shown as a "Confirm before going" box.
@@ -19,7 +14,7 @@
 
 ### 5. Saturday driver not booked
 - **Status:** Open (book before Saturday)
-- **Details:** Decided to hire a driver for the wine day (pickup ~9:35 AM at the hotel; Eminent Domaine → Anacréon → optional Fable Hobby → hotel). Shown as "⚠️ TBD: Driver not booked yet" on the 9:35 AM stop.
+- **Details:** Decided to hire a driver for the wine day (pickup ~9:35 AM at the hotel; Eminent Domaine → Anacréon → LEGO Store, Washington Square → optional Guardian Games, SE Taylor → hotel). The driver needs to know about the two extra stops. Shown as "⚠️ TBD: Driver not booked yet" on the 9:35 AM stop.
 - **Fix when booked:** delete the `tbd`. Don't put the booking number or price in the app.
 
 ### 7. Columbia Sports Cards hours unverified
@@ -31,6 +26,9 @@
 - **Details:** GitHub Pages sites are public. The app has no confirmation numbers, prices, card details, or email addresses, and dollar amounts from the hotel perks and valet are left out on purpose. Keep it that way.
 
 ## Resolved
+
+### Fable Hobby hours unconfirmed
+- **Fixed in v4 (2026-10-14):** Fable Hobby was dropped. Paula asked for Guardian Games (345 SE Taylor St) in its place. The hours come from the store's site (Sat 10 am–10 pm).
 
 ### Columbia Hobby & SportsCards address unconfirmed
 - **Fixed in v3 (2026-10-14):** The store's website (columbiasportscard.com, "Visit us!") lists **15644 NE Fourth Plain Blvd, Vancouver, WA 98682** under the name Columbia Sports Cards & More. The 2707 NE 114th Ave address was dropped.
@@ -48,6 +46,7 @@
 | v1 | 2026-10-13 | First release, built from the victoria-2026 template. Three days, Travel & Stay, Resources, Packing. |
 | v2 | 2026-10-13 | Saturday dinner set to Ruse Brewing Crust Collective (Detroit-style pizza, Slabtown). Parking plan: valet, paid with the property credit. Mox moved to Ideas. |
 | v3 | 2026-10-14 | Columbia address confirmed (15644 NE Fourth Plain Blvd). Saturday: hired driver instead of a designated driver (not booked yet). Ruse kept as a no-reservation, flexible-time dinner. |
+| v4 | 2026-10-14 | Paula's email: Guardian Games (SE Taylor) replaces Fable Hobby on Saturday. Added the LEGO Store at Washington Square on the Saturday drive back (2:15 PM). Added Powell's City of Books on Sunday at 10 AM and removed it from Ideas. Dropped Stumptown Otaku, so Powell's runs until check-out. The Saturday hotel rest moved to 4:30 PM. |
 
 ## Lessons carried over from london-2026 / victoria-2026
 - **Stale PWA cache:** bump `CACHE_NAME` on every content change. The footer version tag shows stale installs.
