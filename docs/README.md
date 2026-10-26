@@ -9,7 +9,7 @@ An offline-capable, installable web app (PWA) for David & Paula's Portland, OR w
 ## What's in it
 
 - **Fri 6:** drive down (I-205 split at Salmon Creek), Columbia Sports Cards & More (Vancouver, WA), ORB Sports Cards (Oregon City), Ritz-Carlton check-in, dinner at Dolly Olive.
-- **Sat 7 (wine day):** Eminent Domaine and Anacréon in Newberg, LEGO Store (Washington Square), optional Guardian Games, rest, Detroit-style pizza at Ruse Brewing Crust Collective in Slabtown.
+- **Sat 7 (wine day):** Eminent Domaine and Anacréon in Newberg, LEGO Store (Washington Square), 3+ hours at Guardian Games for a card trade-in (30-min + 1-hr buylist evaluations), Detroit-style pizza at Ruse Brewing Crust Collective in Slabtown. A Friday backup for the trade-in sits on Friday's first stop.
 - **Sun 8:** breakfast, Powell's City of Books, check-out, drive home.
 - **Travel & Stay**, **Resources** (wine-day tips, money, emergency, getting around), **Packing** checklist.
 - Live weather from Open-Meteo once the trip is within 16 days. Before that, and when offline, it shows November averages.

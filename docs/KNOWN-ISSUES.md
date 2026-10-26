@@ -4,7 +4,7 @@
 
 ### 3. Ruse Brewing hours unconfirmed
 - **Status:** Open
-- **Details:** Saturday ~7:00 PM dinner at Ruse Brewing Crust Collective (1505 NW 21st Ave, (971) 888-5021). **No reservation on purpose**, so dinner can move earlier or later. Its website lists Sat 11:30 am–10 pm, but the site says it's being updated. Shown as a "Confirm before going" box.
+- **Details:** Saturday ~7:30 PM dinner at Ruse Brewing Crust Collective (1505 NW 21st Ave, (971) 888-5021). **No reservation on purpose**, so dinner can move earlier or later. Its website lists Sat 11:30 am–10 pm, but the site says it's being updated. Shown as a "Confirm before going" box.
 - **Fix when known:** put the confirmed hours in `details` and delete `confirm`.
 
 ### 4. Does the property credit cover valet?
@@ -14,8 +14,14 @@
 
 ### 5. Saturday driver not booked
 - **Status:** Open (book before Saturday)
-- **Details:** Decided to hire a driver for the wine day (pickup ~9:35 AM at the hotel; Eminent Domaine → Anacréon → LEGO Store, Washington Square → optional Guardian Games, SE Taylor → hotel). The driver needs to know about the two extra stops. Shown as "⚠️ TBD: Driver not booked yet" on the 9:35 AM stop.
+- **Details:** Decided to hire a driver for the wine day (pickup ~9:35 AM at the hotel; Eminent Domaine → Anacréon → LEGO Store, Washington Square → drop-off at Guardian Games, SE Taylor, ~3:15 PM). Since v5 the driver's day ends at Guardian Games, with no return to the hotel. Tell the driver about the LEGO stop and the drop-off point. Shown as "⚠️ TBD: Driver not booked yet" on the 9:35 AM stop.
 - **Fix when booked:** delete the `tbd`. Don't put the booking number or price in the app.
+
+### 8. Guardian Games trade-in appointments not booked
+- **Status:** Open (book Oct 30–31)
+- **Details:** Guardian Games approved two of Paula's buylists on Oct 25: a **30-min** and a **1-hr** evaluation. Each needs a Calendly appointment (links are in the approval emails, not in the app). Cards go in out of binders, unsleeved, and in buylist order. David estimates 3+ hours at the store. Calendly only opens slots **7 days ahead**, so Fri Nov 6 opens ~Oct 30 and Sat Nov 7 opens ~Oct 31. Slots seen in late Oct started at 12:00 PM. The last 1-hr start was ~5:00 PM on a Friday and ~6:30 PM on a Saturday. David emailed the store on Oct 25 to ask about booking further out.
+- **Plan:** Saturday ~3:15–6:30 PM (driver drops them off; the 4:30 hotel rest was cut and Ruse moved to ~7:30). **Backup:** if only Friday slots are open, use the plan in the `confirm` box on Friday's 10:00 AM stop: leave Seattle at 8:00, Guardian Games ~2:00–5:15, and the Dolly Olive 6:30 reservation stays put.
+- **Fix when booked:** put the appointment times in the stop's `details` and delete its `tbd`. If it lands on Friday, rebuild Friday's stops from the backup, remove the Saturday stop, put the hotel rest back, and delete both backup `confirm` boxes. Don't put buylist dollar amounts in the app.
 
 ### 7. Columbia Sports Cards hours unverified
 - **Status:** Open (low risk)
@@ -47,6 +53,7 @@
 | v2 | 2026-10-13 | Saturday dinner set to Ruse Brewing Crust Collective (Detroit-style pizza, Slabtown). Parking plan: valet, paid with the property credit. Mox moved to Ideas. |
 | v3 | 2026-10-14 | Columbia address confirmed (15644 NE Fourth Plain Blvd). Saturday: hired driver instead of a designated driver (not booked yet). Ruse kept as a no-reservation, flexible-time dinner. |
 | v4 | 2026-10-14 | Paula's email: Guardian Games (SE Taylor) replaces Fable Hobby on Saturday. Added the LEGO Store at Washington Square on the Saturday drive back (2:15 PM). Added Powell's City of Books on Sunday at 10 AM and removed it from Ideas. Dropped Stumptown Otaku, so Powell's runs until check-out. The Saturday hotel rest moved to 4:30 PM. |
+| v5 | 2026-10-25 | Guardian Games trade-in (30-min + 1-hr buylist evaluations, 3+ hrs): Saturday stop at 3:15 PM, no longer optional, with booking checklist and TBD. Driver drops off there. Cut the 4:30 hotel rest; Ruse moved to ~7:30. Friday backup plan added as a confirm box on Friday's 10:00 AM stop (Dolly Olive 6:30 unchanged). Trade-in cards added to Packing. |
 
 ## Lessons carried over from london-2026 / victoria-2026
 - **Stale PWA cache:** bump `CACHE_NAME` on every content change. The footer version tag shows stale installs.

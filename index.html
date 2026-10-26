@@ -445,6 +445,7 @@
             emoji: '🚗',
             name: 'Leave Seattle',
             details: 'Head south on I-5. <strong>At Salmon Creek, take the I-205 split instead of staying on I-5.</strong> I-205 runs past both card shops today.',
+            confirm: '<b>Backup plan:</b> if Guardian Games only has <strong>Friday</strong> trade-in slots (Saturday is the plan), leave Seattle at <strong>8:00 AM</strong> → Columbia ~10:45 (call first: its 10 am opening isn\'t verified) → ORB ~12:00 + quick lunch → Guardian Games ~2:00–5:15 → check in ~5:30 → walk to Dolly Olive by 6:15. The 6:30 reservation doesn\'t move.',
             transportDir: {
               name: '🚗 Seattle → Vancouver, WA',
               steps: [
@@ -501,7 +502,7 @@
       {
         number: 7,
         date: 'Saturday, November 7',
-        theme: '🍷 Willamette Valley wine day',
+        theme: '🍷 Wine day · Guardian Games',
         isWine: true,
         weather: { ...NOV_AVG },
         stops: [
@@ -515,7 +516,7 @@
             time: '9:35 am',
             emoji: '🚗',
             name: 'Driver picks you up → Newberg',
-            details: 'About 50 min southwest to Eminent Domaine. You\'re hiring a driver for the day: both wineries, the LEGO Store, the optional Guardian Games stop, then back to the hotel. Give them the Anacréon entrance note (NE Dopp Rd, not Calkins Lane).',
+            details: 'About 50 min southwest to Eminent Domaine. You\'re hiring a driver for the day: both wineries and the LEGO Store, then drop-off at Guardian Games around 3:15, where the driver\'s day ends. Give them the Anacréon entrance note (NE Dopp Rd, not Calkins Lane). <strong>Bring the trade-in cards</strong>; they ride along all day.',
             mapsQuery: 'Eminent Domaine, 20875 NE Ribbon Ridge Rd, Newberg, OR 97132',
             tbd: 'Driver not booked yet'
           },
@@ -547,23 +548,23 @@
             mapsQuery: 'LEGO Store, Washington Square, 9410 SW Washington Square Rd, Tigard, OR 97223'
           },
           {
-            time: '3:30 pm',
+            time: '3:15 pm',
             emoji: '🎲',
-            name: 'Guardian Games',
+            name: 'Guardian Games: card trade-in',
             pick: 'Paula',
-            optional: true,
             link: 'https://www.guardiangames.com/locations/portland',
-            details: '345 SE Taylor St, Portland, OR 97214 · <a href="tel:+15032384000">(503) 238-4000</a>. Open <strong>Sat 10 am–10 pm</strong>. Board games and trading card games. Just across the river from the hotel, so it\'s the last stop before the driver drops you off.',
-            mapsQuery: 'Guardian Games, 345 SE Taylor St, Portland, OR 97214'
+            details: '345 SE Taylor St, Portland, OR 97214 · <a href="tel:+15032384000">(503) 238-4000</a>. Open <strong>Sat 10 am–10 pm</strong>. Plan on <strong>3+ hours</strong>. Two buylists are approved: a <strong>30-min</strong> and a <strong>1-hr</strong> evaluation. Book them back to back, starting around 3:30. <strong>By appointment:</strong> staff may not evaluate a buylist outside your booked time. The driver drops you here. Afterwards, rideshare back to the hotel (just across the river) or straight to dinner.',
+            mapsQuery: 'Guardian Games, 345 SE Taylor St, Portland, OR 97214',
+            checklist: [
+              'Book the 30-min evaluation (link in the approval email)',
+              'Book the 1-hr evaluation (link in the approval email)',
+              'Cards out of binders, unsleeved, in the exact order of each buylist'
+            ],
+            confirm: '<b>If Saturday has no slots:</b> there\'s a Friday backup plan on Friday\'s 10:00 AM stop.',
+            tbd: 'Appointments not booked yet. Slots open only 7 days ahead (about Oct 31 for Saturday)'
           },
           {
-            time: '4:30 pm',
-            emoji: '🛁',
-            name: 'Rest at the hotel',
-            details: 'Spa, infinity pool (19th floor), or a nap.'
-          },
-          {
-            time: '~7:00 pm',
+            time: '~7:30 pm',
             emoji: '🍕',
             name: 'Dinner: Detroit-style pizza at Ruse Brewing Crust Collective',
             included: 'Flexible time · no reservation',
@@ -623,7 +624,7 @@
       {
         title: '🍷 Wine day tips',
         rows: [
-          ['Driver', 'You\'re hiring a driver for the day (not booked yet). Pickup at the hotel ~9:35 AM; first stop Eminent Domaine at 10:30.'],
+          ['Driver', 'You\'re hiring a driver for the day (not booked yet). Pickup at the hotel ~9:35 AM; first stop Eminent Domaine at 10:30. Last stop: drop-off at Guardian Games ~3:15 (no return to the hotel).'],
           ['Food', 'Eminent Domaine has <strong>no food on site</strong>; eat a good breakfast. Lunch is at Anacréon.'],
           ['Anacréon entrance', 'Use <strong>NE Dopp Rd</strong>. Some GPS apps send you to Calkins Lane, which has no access.']
         ]
@@ -670,6 +671,7 @@
       ],
       '🃏 Card shops': [
         ['wantlist', 'Want lists'],
+        ['tradein', 'Guardian Games trade-in cards (both buylists): out of binders, unsleeved, in buylist order'],
         ['toploaders', 'Top loaders / sleeves for new pickups'],
         ['tote', 'Tote bag']
       ],
