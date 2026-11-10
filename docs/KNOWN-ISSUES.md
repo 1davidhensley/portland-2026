@@ -2,10 +2,10 @@
 
 ## Open
 
-### 9. Extra Saturday Guardian Games slot (5:30–6:30 PM)
-- **Status:** Open (decide before Sat Nov 14)
-- **Details:** Four Calendly appointments are on the calendar for three approved lists: Fri Nov 13 5:00–6:00 PM (1 hr, under Paula's name, booked Nov 9), Sat Nov 14 3:00–3:30 PM (30 min, under Paula's name), Sat 4:00–5:00 PM (1 hr, under David's name) and Sat 5:30–6:30 PM (1 hr, under David's name, booked Nov 9 an hour before the Friday one). Paula's Nov 9 email puts the new trade-in on Friday 5–6, so the Saturday 5:30 slot looks like a leftover. The app shows it as an optional stop with a "decide before Saturday" box.
-- **Fix when known:** if it was cancelled, delete the 5:30 PM stop and the "Extra Saturday slot" row in Resources → Still open. If it's real, say which list it's for.
+### 9. Which list goes in the Fri 5:00 and Sat 5:30 Guardian Games slots
+- **Status:** Open (settle before Fri Nov 13)
+- **Details:** Four Calendly appointments are booked, all confirmed by David on Nov 9: Fri Nov 13 5:00–6:00 PM (1 hr, under Paula's name), Sat Nov 14 3:00–3:30 PM (30 min, David's One Piece list, under Paula's name), Sat 4:00–5:00 PM (1 hr, Paula's list, under David's name) and Sat 5:30–6:30 PM (1 hr, under David's name). Only three approval emails were found (Nov 7 ×2, Nov 9 ×1), so it isn't known which list goes in the Fri 5:00 slot and which in the Sat 5:30 slot, or whether a fourth list is pending. Both stops carry a TBD.
+- **Fix when known:** name the list in each stop's `details`, delete both `tbd`s, update the Guardian Games panel, the packing stacks, and the row in Resources → Still open.
 
 ### 10. Friday 2:30 PM arrival vs 4:00 PM check-in
 - **Status:** Open (ask at the desk Fri)
@@ -47,7 +47,7 @@
 ## Resolved
 
 ### Guardian Games trade-in appointments not booked (was #8)
-- **Fixed in v6 (2026-11-09):** The October approvals were cancelled when the trip moved a week. The lists were resubmitted and approved Nov 7 (1 hr + 30 min) and Nov 9 (1 hr), and appointments are booked for Fri Nov 13 and Sat Nov 14. See open item 9 for the extra slot.
+- **Fixed in v6 (2026-11-09):** The October approvals were cancelled when the trip moved a week. The lists were resubmitted and approved Nov 7 (1 hr + 30 min) and Nov 9 (1 hr), and appointments are booked for Fri Nov 13 and Sat Nov 14. Four slots are booked; see open item 9 for which list goes where.
 
 ### Ruse Brewing hours unconfirmed (was #3)
 - **Closed in v6 (2026-11-09):** Ruse is no longer the Saturday dinner plan; it moved to Resources → Ideas with a "call to check hours" note.
@@ -73,7 +73,7 @@
 | v3 | 2026-10-14 | Columbia address confirmed (15644 NE Fourth Plain Blvd). Saturday: hired driver instead of a designated driver (not booked yet). Ruse kept as a no-reservation, flexible-time dinner. |
 | v4 | 2026-10-14 | Paula's email: Guardian Games (SE Taylor) replaces Fable Hobby on Saturday. Added the LEGO Store at Washington Square on the Saturday drive back (2:15 PM). Added Powell's City of Books on Sunday at 10 AM and removed it from Ideas. Dropped Stumptown Otaku, so Powell's runs until check-out. The Saturday hotel rest moved to 4:30 PM. |
 | v5 | 2026-10-25 | Guardian Games trade-in (30-min + 1-hr buylist evaluations, 3+ hrs): Saturday stop at 3:15 PM, no longer optional, with booking checklist and TBD. Driver drops off there. Cut the 4:30 hotel rest; Ruse moved to ~7:30. Friday backup plan added as a confirm box on Friday's 10:00 AM stop (Dolly Olive 6:30 unchanged). Trade-in cards added to Packing. |
-| v6 | 2026-11-09 | Trip moved to **Fri Nov 13 – Sun Nov 15**; hotel changed to the **Kimpton Hotel Vintage** (422 SW Broadway). Friday rebuilt from Paula's Nov 9 email: leave ~8:00, Columbia 11:00, In-N-Out Vancouver 12:00, ORB 1:00, hotel ~2:30, Guardian Games evaluation 5:00–6:00, Dolly Olive 6:30. Saturday: wineries, back to the hotel, Guardian Games evaluations at 3:00 and 4:00; hired driver, LEGO Store and Ruse dropped (LEGO and Ruse moved to Ideas). Sunday: Powell's optional, late check-out to 4 PM. New "Still open" and Guardian Games panels in Resources; packing list rewritten. Day notes are now data (`note`), and resource groups can be `open`. |
+| v6 | 2026-11-09 | Trip moved to **Fri Nov 13 – Sun Nov 15**; hotel changed to the **Kimpton Hotel Vintage** (422 SW Broadway). Friday rebuilt from Paula's Nov 9 email: leave ~8:00, Columbia 11:00, In-N-Out Vancouver 12:00, ORB 1:00, hotel ~2:30, Guardian Games evaluation 5:00–6:00, Dolly Olive 6:30. Saturday: wineries, back to the hotel, Guardian Games evaluations at 3:00, 4:00 and 5:30; hired driver, LEGO Store and Ruse dropped (LEGO and Ruse moved to Ideas). Sunday: Powell's optional, late check-out to 4 PM. New "Still open" and Guardian Games panels in Resources; packing list rewritten. Day notes are now data (`note`), and resource groups can be `open`. |
 
 ## Lessons carried over from london-2026 / victoria-2026
 - **Stale PWA cache:** bump `CACHE_NAME` on every content change. The footer version tag shows stale installs.

@@ -521,14 +521,15 @@
             name: 'Guardian Games: card evaluation (1 hr)',
             pick: 'Paula',
             link: 'https://www.guardiangames.com/locations/portland',
-            details: '345 SE Taylor St, Portland, OR 97214 · <a href="tel:+15032384000">(503) 238-4000</a>. <strong>5:00–6:00 PM</strong>, 1-hr buylist evaluation for the <strong>third list</strong> (approved Nov 9: Star Wars Unlimited, One Piece and Pokémon). Booked under <strong>Paula\'s</strong> name. The counter can still turn cards down on condition.',
+            details: '345 SE Taylor St, Portland, OR 97214 · <a href="tel:+15032384000">(503) 238-4000</a>. <strong>5:00–6:00 PM</strong>, 1-hr buylist evaluation. Booked under <strong>Paula\'s</strong> name. The counter can still turn cards down on condition.',
             reservation: 'Booked · 5:00–6:00 PM',
             mapsQuery: GUARDIAN_QUERY,
             checklist: [
               'Cards out of binders and unsleeved',
-              'Stack in the exact order of the Nov 9 approved list',
+              'Stack in the exact order of its approved list',
               'Approved list handy on a phone or printed'
-            ]
+            ],
+            tbd: 'Which list this slot is for. The list approved Nov 9 (Star Wars Unlimited, One Piece, Pokémon) goes here or in Saturday\'s 5:30 slot'
           },
           {
             time: '6:00 pm',
@@ -649,11 +650,12 @@
           },
           {
             time: '5:30 pm',
-            emoji: '❓',
-            name: 'Guardian Games: extra 1-hr slot',
-            optional: true,
-            details: 'A third Saturday slot, <strong>5:30–6:30 PM</strong>, was booked on Nov 9 under David\'s name and is still on the calendar. The Nov 9 list now has Friday\'s 5:00 PM appointment, so this one looks like a leftover.',
-            confirm: '<b>Decide before Saturday:</b> if Friday\'s appointment replaced this one, cancel it with the link in its Calendly email so the store can give the hour to someone else.'
+            emoji: '🎲',
+            name: 'Guardian Games: evaluation 3 (1 hr)',
+            details: '<strong>5:30–6:30 PM</strong>, 1-hr buylist evaluation. Booked under <strong>David\'s</strong> name.',
+            reservation: 'Booked · 5:30–6:30 PM',
+            checklist: ['Hand over the stack, unsleeved, in list order'],
+            tbd: 'Which list this slot is for. The list approved Nov 9 goes here or in Friday\'s 5:00 slot'
           },
           {
             time: 'Evening',
@@ -717,7 +719,7 @@
           ['Wine-day driver', 'Nobody is booked to drive on Saturday. Decide who drives, or book a car service.'],
           ['Saturday lunch and dinner', 'Neither is booked.'],
           ['Card slots under swapped names', 'Sat 3:00 = David\'s One Piece list, under <strong>Paula\'s</strong> name. Sat 4:00 = Paula\'s big list, under <strong>David\'s</strong> name. Bring the right stack to each.'],
-          ['Extra Saturday slot', 'A 5:30–6:30 PM Guardian Games slot is still on the calendar for Saturday. Cancel it if Friday\'s 5:00 PM appointment replaced it.'],
+          ['Which list goes in which slot', 'Four Guardian Games slots are booked. Sat 3:00 and 4:00 are set. It isn\'t settled which lists go in <strong>Fri 5:00</strong> and <strong>Sat 5:30</strong>.'],
           ['Early check-in', 'Friday\'s plan has you at the hotel at 2:30, but check-in is 4:00 PM. A room that early isn\'t guaranteed.'],
           ['Friday dinner parking', 'The Guardian Games appointment ends at 6:00 and Dolly Olive is at 6:30. Decide where the car goes.'],
           ['Hotel wine hour', 'The time isn\'t confirmed. Ask at the desk.']
@@ -735,7 +737,7 @@
       {
         title: '🎲 Guardian Games trade-in',
         rows: [
-          ['Appointments', '<strong>Fri 5:00–6:00 PM</strong>: third list (approved Nov 9), under Paula\'s name.<br><strong>Sat 3:00–3:30 PM</strong>: David\'s One Piece list, under Paula\'s name.<br><strong>Sat 4:00–5:00 PM</strong>: Paula\'s list, under David\'s name.'],
+          ['Appointments', '<strong>Fri 5:00–6:00 PM</strong>: under Paula\'s name (list not settled).<br><strong>Sat 3:00–3:30 PM</strong>: David\'s One Piece list, under Paula\'s name.<br><strong>Sat 4:00–5:00 PM</strong>: Paula\'s list, under David\'s name.<br><strong>Sat 5:30–6:30 PM</strong>: under David\'s name (list not settled).'],
           ['How to bring the cards', 'Out of binders, unsleeved, each stack in the exact order of its approved list. Staff may not evaluate a list outside its booked time.'],
           ['Store', '345 SE Taylor St · <a href="tel:+15032384000">(503) 238-4000</a> · free parking · Sat 10 am–10 pm.']
         ]
@@ -780,7 +782,8 @@
     // ============================================================
     const packingList = {
       '🃏 Card trade-in prep': [
-        ['stack-fri', 'Friday 5:00 stack: the Nov 9 list (Star Wars Unlimited, One Piece, Pokémon)'],
+        ['stack-fri', 'Friday 5:00 stack, labeled'],
+        ['stack-sat530', 'Saturday 5:30 stack, labeled (the Nov 9 list, Star Wars Unlimited / One Piece / Pokémon, goes in one of these two)'],
         ['stack-sat3', 'Saturday 3:00 stack, labeled: David\'s One Piece list'],
         ['stack-sat4', 'Saturday 4:00 stack, labeled: Paula\'s Star Wars / Hobbit / foils list'],
         ['tradein', 'All cards unsleeved and out of binders'],
