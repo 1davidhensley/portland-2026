@@ -103,13 +103,23 @@
 
     /* ---------- Hero ---------- */
     .hero {
+      position: relative; overflow: hidden;
       background: linear-gradient(135deg, var(--hero-a), var(--hero-b));
       color: #fff;
-      padding: calc(28px + env(safe-area-inset-top)) 20px 26px;
+      padding: calc(28px + env(safe-area-inset-top)) 20px 84px;
     }
-    .hero-inner { max-width: 720px; margin: 0 auto; }
+    .hero-inner { max-width: 720px; margin: 0 auto; position: relative; z-index: 1; }
     .hero-kicker { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.85; }
-    .hero h1 { font-family: var(--font-display); font-size: 2.2rem; line-height: 1.1; margin: 6px 0 8px; }
+    .hero h1 { font-family: var(--font-display); font-size: 2.2rem; line-height: 1.1; margin: 6px 0 8px; user-select: none; -webkit-user-select: none; }
+    /* Hero art: Mt. Hood over a fir treeline. Sits on the dark hero gradient in both themes,
+       so these fills are fixed (like the hero's white text), not tokens. */
+    .hero-art { position: absolute; left: 0; bottom: 0; width: 100%; height: 68px; display: block; }
+    .hero-art .far { fill: rgba(255, 255, 255, 0.08); }
+    .hero-art .hood { fill: rgba(255, 255, 255, 0.17); }
+    .hero-art .snow { fill: rgba(255, 255, 255, 0.62); }
+    .hero-art .firs, .hero-art .bigfoot-shape { fill: #0c211d; }
+    .hero-art #bigfoot { cursor: pointer; outline: none; -webkit-tap-highlight-color: transparent; }
+    .hero-art #bigfoot:focus-visible .bigfoot-shape { fill: #fff; }
     .hero-meta { font-size: 0.92rem; opacity: 0.92; }
     .hero-meta span { white-space: nowrap; }
     .countdown { margin-top: 12px; display: inline-block; background: rgba(255,255,255,0.16); border-radius: 999px; padding: 4px 12px; font-size: 0.85rem; font-weight: 600; }
@@ -319,6 +329,113 @@
     .pack-item input:checked + label { color: var(--ink-dim); text-decoration: line-through; }
     .pack-reset { margin-top: 10px; font: 600 0.8rem var(--font-body); background: none; border: 1px solid var(--hairline); color: var(--ink-dim); border-radius: 999px; padding: 4px 12px; cursor: pointer; }
 
+    /* ---------- Rose City card set (packs, binder, card viewer) ---------- */
+    .cards-intro { font-size: 0.9rem; color: var(--ink-2); margin: -4px 0 12px; }
+    .cards-progress { font-weight: 700; color: var(--rose); white-space: nowrap; }
+    .pack-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 14px; }
+    .pack {
+      position: relative; overflow: hidden;
+      border: 0; border-radius: 10px; padding: 14px 4px 9px; min-height: 100px;
+      color: #fff; font: 700 0.72rem var(--font-body); line-height: 1.2;
+      background: linear-gradient(160deg, var(--hero-a), var(--hero-b));
+      box-shadow: var(--shadow); cursor: pointer;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
+    }
+    .pack::before {
+      content: ''; position: absolute; left: 0; right: 0; top: 0; height: 7px;
+      background: repeating-linear-gradient(90deg, rgba(255,255,255,0.4) 0 3px, transparent 3px 6px);
+    }
+    .pack-emoji { font-size: 1.6rem; line-height: 1; }
+    .pack-sub { font-weight: 500; font-size: 0.66rem; opacity: 0.9; }
+    .pack.locked { filter: grayscale(0.7); opacity: 0.55; }
+    .pack.opened { background: var(--paper-2); color: var(--ink-dim); box-shadow: none; }
+    .pack.opened::before { display: none; }
+    .pack.ready { animation: packWiggle 2.6s ease-in-out infinite; }
+    @keyframes packWiggle {
+      0%, 84%, 100% { transform: rotate(0); }
+      87% { transform: rotate(-4deg); } 90% { transform: rotate(4deg); }
+      93% { transform: rotate(-3deg); } 96% { transform: rotate(2deg); }
+    }
+
+    .binder { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    @media (min-width: 560px) { .binder { grid-template-columns: repeat(4, 1fr); } }
+    .tcard {
+      position: relative; overflow: hidden;
+      aspect-ratio: 5 / 7; width: 100%;
+      border: 3px solid var(--ink-dim); border-radius: 10px;
+      background: var(--card); color: var(--ink);
+      font-family: var(--font-body); text-align: center;
+      display: flex; flex-direction: column; align-items: center; padding: 6px;
+    }
+    button.tcard { cursor: pointer; }
+    .tcard.r-uncommon { border-color: var(--fir); }
+    .tcard.r-rare { border-color: var(--river); }
+    .tcard.r-holo { border-color: var(--rose); }
+    .tcard.r-secret { border-color: var(--wine); }
+    .tcard.back {
+      background: linear-gradient(160deg, var(--hero-a), var(--hero-b));
+      border-color: var(--hairline); color: rgba(255,255,255,0.75); justify-content: center;
+    }
+    .tcard.back .tcard-art { opacity: 0.55; flex: 0 0 auto; }
+    .tcard.back .tcard-num { color: rgba(255,255,255,0.75); align-self: center; }
+    .tcard-top { display: flex; justify-content: space-between; align-items: center; gap: 6px; width: 100%; }
+    .tcard-num { font-size: 0.62rem; font-weight: 700; color: var(--ink-dim); align-self: flex-end; }
+    .tcard-rarity { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-dim); }
+    .tcard-art { font-size: 2rem; line-height: 1; flex: 1; display: grid; place-items: center; }
+    .tcard-name { font-weight: 700; font-size: 0.72rem; line-height: 1.15; overflow-wrap: anywhere; }
+    /* Holo shimmer for the two top rarities */
+    .tcard.r-holo::after, .tcard.r-secret::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(115deg, transparent 32%, rgba(255,255,255,0.32) 45%, rgba(240,140,168,0.30) 50%, rgba(114,182,200,0.30) 55%, transparent 68%);
+      background-size: 260% 100%;
+      animation: holo 3.4s linear infinite;
+    }
+    @keyframes holo { from { background-position: 130% 0; } to { background-position: -130% 0; } }
+
+    .card-viewer {
+      position: fixed; inset: 0; z-index: 50;
+      background: rgba(8, 14, 16, 0.82);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 20px; overflow-y: auto;
+    }
+    .card-viewer[hidden] { display: none; }
+    .tcard.big {
+      aspect-ratio: auto; width: min(78vw, 300px); min-height: calc(min(78vw, 300px) * 1.4);
+      border-width: 5px; border-radius: 16px; padding: 14px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+      animation: cardIn 0.45s ease;
+    }
+    .tcard.big .tcard-num { font-size: 0.72rem; align-self: center; }
+    .tcard.big .tcard-art { font-size: 4rem; flex: 0 0 auto; padding: 18px 0 12px; }
+    .tcard.big .tcard-name { font-family: var(--font-display); font-size: 1.3rem; }
+    .tcard-fact { font-size: 0.88rem; line-height: 1.42; color: var(--ink-2); margin-top: 10px; }
+    .tcard-spot {
+      font-size: 0.78rem; color: var(--ink-2); margin-top: auto; width: 100%;
+      border-top: 1px dashed var(--hairline); padding-top: 8px;
+    }
+    .tcard-fact + .tcard-spot { margin-top: 12px; }
+    @keyframes cardIn { from { transform: rotateY(90deg) scale(0.8); opacity: 0; } to { transform: none; opacity: 1; } }
+    /* The viewer sits on a dark scrim in both themes, so its text and button colors are fixed */
+    .viewer-count { color: rgba(255,255,255,0.85); font-size: 0.82rem; font-weight: 600; margin-bottom: 10px; min-height: 1.2em; }
+    .viewer-btn {
+      margin-top: 16px; border: 0; border-radius: 999px; padding: 11px 26px;
+      font: 700 0.95rem var(--font-body); background: #fff; color: #1a2124; cursor: pointer;
+    }
+
+    .toast {
+      position: fixed; left: 50%; bottom: calc(78px + env(safe-area-inset-bottom)); transform: translateX(-50%);
+      background: var(--ink); color: var(--paper);
+      padding: 9px 16px; border-radius: 999px; font-size: 0.86rem; font-weight: 600; text-align: center;
+      max-width: 88vw; z-index: 60; opacity: 0; transition: opacity 0.25s; pointer-events: none;
+    }
+    .toast.show { opacity: 1; }
+    .shower { position: fixed; inset: 0; z-index: 55; overflow: hidden; pointer-events: none; }
+    .shower span { position: absolute; top: -48px; animation: fall linear forwards; }
+    @keyframes fall { to { transform: translateY(115vh) rotate(540deg); } }
+    @media (prefers-reduced-motion: reduce) {
+      .pack.ready, .tcard.big, .tcard.r-holo::after, .tcard.r-secret::after { animation: none; }
+    }
+
     footer { text-align: center; font-size: 0.78rem; color: var(--ink-dim); padding: 10px 16px 40px; }
     #versionTag.stale { color: var(--alert); font-weight: 600; }
 
@@ -343,6 +460,17 @@
       </div>
       <div class="countdown" id="tripCountdown"></div>
     </div>
+    <svg class="hero-art" viewBox="0 0 720 68" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Mount Hood behind a line of fir trees">
+      <path class="far" d="M0 68 L0 46 Q60 32 120 44 T240 40 T360 46 T480 38 T600 44 T720 40 L720 68 Z"/>
+      <path class="hood" d="M363 68 L427 16 L437 10 L445 14 L453 9 L463 18 L535 68 Z"/>
+      <path class="snow" d="M427 16 L437 10 L445 14 L453 9 L463 18 L472 27 L461 24 L453 31 L444 23 L435 30 L427 24 L417 27 Z"/>
+      <path class="firs" id="heroFirs" d=""/>
+      <g id="bigfoot" role="button" tabindex="0" aria-label="Something in the trees" transform="translate(220 37)">
+        <rect x="-14" y="-18" width="44" height="48" fill="transparent"/>
+        <circle class="bigfoot-shape" cx="8" cy="3" r="3.6"/>
+        <path class="bigfoot-shape" d="M3 7 Q8 5 13 7 L14 17 L11 17 L12 26 L9 26 L8 19 L6 26 L3 26 L5 17 L2 17 Z M3 8 L-1 17 L1 18 L5 10 Z M13 8 L17 16 L15 17 L11 10 Z"/>
+      </g>
+    </svg>
   </header>
 
   <nav class="nav" aria-label="Days">
@@ -351,6 +479,9 @@
 
   <main>
     <div id="dayCards"></div>
+
+    <h2 class="section-title" id="cards">Rose City Card Set</h2>
+    <div id="cardsSection"></div>
 
     <h2 class="section-title" id="travel">Travel &amp; Stay</h2>
     <details class="panel" open>
@@ -378,6 +509,13 @@
   </footer>
 
   <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <div class="card-viewer" id="cardViewer" role="dialog" aria-modal="true" aria-label="Card" hidden>
+    <div class="viewer-count" id="viewerCount"></div>
+    <div id="viewerCard"></div>
+    <button class="viewer-btn" id="viewerNext">Done</button>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script>
     // ============================================================
@@ -821,6 +959,92 @@
     };
 
     // ============================================================
+    // ROSE CITY CARD SET — a collectible set of Portland facts, opened from "packs".
+    // Every fact here was checked against a source (see docs/KNOWN-ISSUES.md, v7). Same rule
+    // as the itinerary: never invent one. Hedge ("widely called", "said to") where sources differ.
+    // Card fields: id, emoji, name, rarity (common | uncommon | rare | holo | secret), fact, spot.
+    // Pack fields: id, emoji, label, day (trip day it unlocks on; omit = open now), opens (label), cards[ids].
+    // Collected ids are saved on the phone in localStorage `pdx-cards`.
+    // The `secret` card isn't in any pack; it's found by tapping Bigfoot in the hero treeline.
+    // ============================================================
+    const cardSet = [
+      {
+        id: 'penny', emoji: '🪙', name: 'The Portland Penny', rarity: 'rare',
+        fact: 'In 1845 the founders settled the town\'s name with a best-of-three coin toss. Pettygrove, from Portland, Maine, beat Lovejoy, from Boston. You came this close to a weekend in Boston, Oregon.',
+        spot: 'The toss is said to have happened in Oregon City, where ORB is on Friday.'
+      },
+      {
+        id: 'vintage', emoji: '🏨', name: 'Est. 1894', rarity: 'uncommon',
+        fact: 'Your hotel\'s building opened in 1894 as the Imperial Hotel. It has been a Kimpton since 1991.',
+        spot: 'Look up at the old facade before you walk in.'
+      },
+      {
+        id: 'sunshine', emoji: '☔', name: 'Liquid Sunshine', rarity: 'common',
+        fact: 'Local legend says real Portlanders don\'t carry umbrellas. You packed one anyway. Wise.',
+        spot: 'Count the umbrellas downtown. Yours counts.'
+      },
+      {
+        id: 'animal', emoji: '🍔', name: 'Animal Style', rarity: 'common',
+        fact: 'It isn\'t on the board, but it is on In-N-Out\'s own "Not So Secret Menu": a mustard-cooked patty, extra spread, pickles and grilled onions.',
+        spot: 'Friday lunch. Say the words.'
+      },
+      {
+        id: 'bridge', emoji: '🌉', name: 'Glenn Jackson Bridge', rarity: 'uncommon',
+        fact: 'Friday\'s drive crosses the Columbia River on I-205\'s Glenn Jackson Bridge. Washington behind you, Oregon ahead.',
+        spot: 'Between In-N-Out and ORB.'
+      },
+      {
+        id: 'hood', emoji: '🏔️', name: 'Mt. Hood', rarity: 'holo',
+        fact: 'Oregon\'s tallest peak, a little over 11,200 feet. It\'s also a volcano.',
+        spot: 'On a clear day, look east from the I-205 bridge. November may have other plans.'
+      },
+      {
+        id: 'ribbon', emoji: '🍇', name: 'Ribbon Ridge', rarity: 'holo',
+        fact: 'Oregon\'s smallest wine appellation, official since 2005. It sits inside the Chehalem Mountains appellation, which sits inside the Willamette Valley one. Wine nesting dolls.',
+        spot: 'Saturday morning, on the way up Ribbon Ridge Road.'
+      },
+      {
+        id: 'stag', emoji: '🦌', name: 'The White Stag Sign', rarity: 'rare',
+        fact: 'The big "Portland Oregon" sign in Old Town. Every holiday season since 1959 the stag gets a red Rudolph nose, usually lit the day before Thanksgiving. You\'re about ten days early.',
+        spot: 'West end of the Burnside Bridge. Best after dark.'
+      },
+      {
+        id: 'portlandia', emoji: '🔱', name: 'Portlandia', rarity: 'uncommon',
+        fact: 'A hammered-copper giant kneeling over the entrance of the Portland Building. Widely called the second-largest statue of its kind in the US, after the Statue of Liberty.',
+        spot: 'SW 5th Ave, a short walk south of the hotel.'
+      },
+      {
+        id: 'powells', emoji: '📚', name: 'City of Books', rarity: 'rare',
+        fact: 'Powell\'s fills a whole city block, with nine color-coded rooms. They hand out maps. Take one.',
+        spot: 'Sunday morning, 1005 W Burnside St.'
+      },
+      {
+        id: 'bubbler', emoji: '⛲', name: 'Benson Bubbler', rarity: 'common',
+        fact: 'Bronze four-bowl drinking fountains all over downtown. Lumber baron Simon Benson paid for the first 20 in 1912. The city now keeps 52 of them.',
+        spot: 'Street corners downtown.'
+      },
+      {
+        id: 'millends', emoji: '🍀', name: 'Mill Ends Park', rarity: 'uncommon',
+        fact: 'A two-foot circle of plants in a traffic median. It held the Guinness title for world\'s smallest park until 2025, when a town in Japan built a smaller one. Portland\'s answer: ours has leprechauns.',
+        spot: 'SW Naito Parkway at Taylor St, by the river.'
+      },
+      {
+        id: 'sasquatch', emoji: '🦶', name: 'Sasquatch', rarity: 'secret',
+        fact: 'You found him. In 1969 Skamania County, Washington, up the Columbia from Vancouver, made it illegal to kill a Sasquatch. The law is still on the books.',
+        spot: 'He was in the trees the whole time.'
+      }
+    ];
+
+    const cardPacks = [
+      { id: 'preview', emoji: '🌹', label: 'Preview pack', cards: ['penny', 'vintage', 'sunshine'] },
+      { id: 'fri', emoji: '🚗', label: 'Friday pack', day: 13, opens: 'Fri Nov 13', cards: ['animal', 'bridge', 'hood'] },
+      { id: 'sat', emoji: '🍷', label: 'Saturday pack', day: 14, opens: 'Sat Nov 14', cards: ['ribbon', 'stag', 'portlandia'] },
+      { id: 'sun', emoji: '📚', label: 'Sunday pack', day: 15, opens: 'Sun Nov 15', cards: ['powells', 'bubbler', 'millends'] }
+    ];
+
+    const RARITY_LABEL = { common: '● Common', uncommon: '◆ Uncommon', rare: '★ Rare', holo: '✦ Holo rare', secret: '✦ Secret rare' };
+
+    // ============================================================
     // WEATHER — Open-Meteo, imperial primary. Offline → NOV_AVG stays.
     // ============================================================
     const WMO_CODES = {
@@ -909,6 +1133,7 @@
         return `<a class="${cls}" href="#day-${day.number}" data-day="${day.number}">${wk} ${day.number}${day.isWine ? ' 🍷' : ''}</a>`;
       }).join('');
       document.getElementById('dayPills').innerHTML = pills +
+        `<a class="pill aux" href="#cards">🃏 Cards</a>` +
         `<a class="pill aux" href="#travel">🚗 Travel</a>` +
         `<a class="pill aux" href="#resources">ℹ️ Resources</a>` +
         `<a class="pill aux" href="#packing">🧳 Packing</a>`;
@@ -1069,7 +1294,167 @@
     }
 
     // ============================================================
-    // PERSISTENCE — namespaced keys: portland2026-checked, pack-pdx-*
+    // CARD SET — packs, binder, viewer
+    // ============================================================
+    const mainCards = () => cardSet.filter(c => c.rarity !== 'secret');
+    const secretCard = () => cardSet.find(c => c.rarity === 'secret');
+    const cardById = id => cardSet.find(c => c.id === id);
+    function cardNum(card) {
+      if (card.rarity === 'secret') return 'S1';
+      const main = mainCards();
+      return `${String(main.indexOf(card) + 1).padStart(2, '0')}/${main.length}`;
+    }
+    function getCards() {
+      try { const a = JSON.parse(lsGet('pdx-cards') || '[]'); return Array.isArray(a) ? a : []; } catch (e) { return []; }
+    }
+    function addCards(ids) {
+      const have = getCards();
+      const fresh = ids.filter(id => !have.includes(id));
+      if (fresh.length) lsSet('pdx-cards', JSON.stringify(have.concat(fresh)));
+      return fresh;
+    }
+    function packUnlocked(pack) {
+      return !pack.day || new Date() >= new Date(TRIP_YEAR, TRIP_MONTH, pack.day);
+    }
+
+    function renderCardSet() {
+      const el = document.getElementById('cardsSection');
+      if (!el) return;
+      const have = getCards();
+      const main = mainCards();
+      const secret = secretCard();
+      const count = main.filter(c => have.includes(c.id)).length;
+
+      const packs = cardPacks.map(p => {
+        const opened = p.cards.every(id => have.includes(id));
+        const state = opened ? 'opened' : (packUnlocked(p) ? 'ready' : 'locked');
+        const sub = { opened: 'Opened ✓', ready: 'Tap to rip', locked: `Opens ${p.opens}` }[state];
+        return `<button class="pack ${state}" data-pack-id="${p.id}">
+          <span class="pack-emoji">${state === 'locked' ? '🔒' : p.emoji}</span>
+          <span>${p.label}</span><span class="pack-sub">${sub}</span>
+        </button>`;
+      }).join('');
+
+      const thumb = c => have.includes(c.id)
+        ? `<button class="tcard r-${c.rarity}" data-card-id="${c.id}" aria-label="${c.name}">
+            <span class="tcard-num">${cardNum(c)}</span>
+            <span class="tcard-art">${c.emoji}</span>
+            <span class="tcard-name">${c.name}</span>
+          </button>`
+        : `<div class="tcard back" aria-label="Not collected yet">
+            <span class="tcard-art">${c.rarity === 'secret' ? '❓' : '🌹'}</span>
+            <span class="tcard-num">${c.rarity === 'secret' ? 'Secret rare' : cardNum(c)}</span>
+          </div>`;
+
+      el.innerHTML = `
+        <div class="cards-intro">
+          Twelve Portland cards, three to a pack. One pack is ready now and one unlocks each day of the trip.
+          <span class="cards-progress">${count} of ${main.length} collected${secret && have.includes(secret.id) ? ' + the secret rare' : ''}</span>
+        </div>
+        <div class="pack-row">${packs}</div>
+        <div class="binder">${main.map(thumb).join('')}${secret ? thumb(secret) : ''}</div>`;
+    }
+
+    function bigCardHtml(c) {
+      return `
+        <div class="tcard big r-${c.rarity}">
+          <div class="tcard-top"><span class="tcard-rarity">${RARITY_LABEL[c.rarity] || ''}</span><span class="tcard-num">${cardNum(c)}</span></div>
+          <div class="tcard-art">${c.emoji}</div>
+          <div class="tcard-name">${c.name}</div>
+          <div class="tcard-fact">${noBreakHwy(c.fact)}</div>
+          ${c.spot ? `<div class="tcard-spot">👀 <strong>Spot it:</strong> ${noBreakHwy(c.spot)}</div>` : ''}
+        </div>`;
+    }
+
+    const viewer = { cards: [], i: 0, fresh: [] };
+    function showCards(cards, freshIds = []) {
+      if (!cards.length) return;
+      viewer.cards = cards; viewer.i = 0; viewer.fresh = freshIds;
+      document.getElementById('cardViewer').hidden = false;
+      renderViewer();
+      document.getElementById('viewerNext').focus();
+    }
+    function renderViewer() {
+      const c = viewer.cards[viewer.i];
+      const n = viewer.cards.length;
+      const isNew = viewer.fresh.includes(c.id);
+      document.getElementById('viewerCard').innerHTML = bigCardHtml(c);
+      document.getElementById('viewerCount').textContent =
+        [isNew ? '✨ New card' : '', n > 1 ? `${viewer.i + 1} of ${n}` : ''].filter(Boolean).join(' · ');
+      document.getElementById('viewerNext').textContent = viewer.i < n - 1 ? 'Next card →' : 'Done';
+    }
+    function closeViewer() {
+      const el = document.getElementById('cardViewer');
+      if (el.hidden) return;
+      el.hidden = true;
+      renderCardSet();
+      // Full-set celebration, once
+      const have = getCards();
+      if (mainCards().every(c => have.includes(c.id)) && lsGet('pdx-set-done') !== '1') {
+        lsSet('pdx-set-done', '1');
+        shower(['🌹', '🌹', '🃏', '✨'], 34);
+        toast('Full set! 12 of 12 🌹');
+      }
+    }
+    function openPack(pack) {
+      if (!packUnlocked(pack)) { toast(`🔒 ${pack.label} opens ${pack.opens}`); return; }
+      const fresh = addCards(pack.cards);
+      showCards(pack.cards.map(cardById).filter(Boolean), fresh);
+    }
+    function foundBigfoot() {
+      const s = secretCard();
+      if (!s) return;
+      const fresh = addCards([s.id]);
+      if (fresh.length) shower(['🌲', '🦶', '🌲'], 22);
+      showCards([s], fresh);
+    }
+
+    // ============================================================
+    // SURPRISES — toast, emoji shower, hero treeline
+    // ============================================================
+    let toastTimer = null;
+    function toast(msg) {
+      const el = document.getElementById('toast');
+      if (!el) return;
+      el.textContent = msg;
+      el.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => el.classList.remove('show'), 3200);
+    }
+    function shower(emojis, count = 28) {
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const box = document.createElement('div');
+      box.className = 'shower';
+      box.setAttribute('aria-hidden', 'true');
+      for (let i = 0; i < count; i++) {
+        const s = document.createElement('span');
+        s.textContent = emojis[i % emojis.length];
+        s.style.left = `${Math.random() * 96}%`;
+        s.style.fontSize = `${1 + Math.random() * 1.1}rem`;
+        s.style.animationDuration = `${2.2 + Math.random() * 1.8}s`;
+        s.style.animationDelay = `${Math.random() * 0.9}s`;
+        box.appendChild(s);
+      }
+      document.body.appendChild(box);
+      setTimeout(() => box.remove(), 5200);
+    }
+    // Fir treeline along the bottom of the hero, with a gap where Bigfoot stands
+    function drawHeroFirs() {
+      const path = document.getElementById('heroFirs');
+      if (!path) return;
+      let d = 'M0 68 L0 62 ';
+      for (let x = -4, i = 0; x < 724; i++) {
+        const w = 11 + (i * 7) % 6;
+        const h = 13 + (i * 13) % 16;
+        if (x > 212 && x < 236) { x += 22; d += `L${x} 62 `; continue; }
+        d += `L${x} 62 L${x + w / 2} ${62 - h} L${x + w} 62 `;
+        x += w;
+      }
+      path.setAttribute('d', d + 'L720 62 L720 68 Z');
+    }
+
+    // ============================================================
+    // PERSISTENCE — namespaced keys: portland2026-checked, pack-pdx-*, pdx-cards, pdx-set-done
     // ============================================================
     function lsGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
     function lsSet(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } }
@@ -1087,6 +1472,10 @@
           const c = getChecked();
           if (cb.checked) c[cb.dataset.key] = true; else delete c[cb.dataset.key];
           lsSet('portland2026-checked', JSON.stringify(c));
+          if (cb.checked && cb.dataset.key.endsWith('pick-up-the-wine-allocation')) {
+            shower(['🍷', '🥂', '🍇'], 26);
+            toast('Allocation secured. Cheers! 🥂');
+          }
         });
       });
     }
@@ -1211,6 +1600,51 @@
         if (!cb) return;
         if (cb.checked) lsSet(`pack-pdx-${cb.dataset.pack}`, '1'); else lsDel(`pack-pdx-${cb.dataset.pack}`);
         updatePackProgress();
+        const all = [...document.querySelectorAll('[data-pack]')];
+        if (cb.checked && all.every(c => c.checked)) {
+          shower(['🌹', '🧳', '🌲', '🃏'], 32);
+          toast('All packed. Portland, here you come! 🚗');
+        }
+      });
+
+      // Card set: rip a pack, or tap a collected card to read it again
+      document.getElementById('cardsSection').addEventListener('click', e => {
+        const packBtn = e.target.closest('[data-pack-id]');
+        if (packBtn) { openPack(cardPacks.find(p => p.id === packBtn.dataset.packId)); return; }
+        const cardBtn = e.target.closest('[data-card-id]');
+        if (cardBtn) showCards([cardById(cardBtn.dataset.cardId)]);
+      });
+      document.getElementById('viewerNext').addEventListener('click', () => {
+        if (viewer.i < viewer.cards.length - 1) { viewer.i++; renderViewer(); } else closeViewer();
+      });
+      document.getElementById('cardViewer').addEventListener('click', e => {
+        if (e.target.id === 'cardViewer') closeViewer();
+      });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeViewer(); });
+
+      // Hidden: Bigfoot in the hero treeline hands over the secret rare
+      const bigfoot = document.getElementById('bigfoot');
+      bigfoot.addEventListener('click', foundBigfoot);
+      bigfoot.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); foundBigfoot(); }
+      });
+      // Hidden: tap the title five times for a rose shower
+      let titleTaps = 0, titleTimer = null;
+      document.querySelector('.hero h1').addEventListener('click', () => {
+        titleTaps++;
+        clearTimeout(titleTimer);
+        titleTimer = setTimeout(() => { titleTaps = 0; }, 1500);
+        if (titleTaps >= 5) {
+          titleTaps = 0;
+          shower(['🌹', '🌹', '🌹', '🌲', '☔'], 36);
+          toast('Keep Portland weird 🌹');
+        }
+      });
+      // Hidden: tap a weather bar to make it rain
+      document.getElementById('dayCards').addEventListener('click', e => {
+        if (!e.target.closest('.weather-bar')) return;
+        shower(['💧'], 40);
+        toast('It\'s not rain. It\'s liquid sunshine. ☔');
       });
       document.getElementById('packReset').addEventListener('click', () => {
         if (!confirm('Uncheck every packing item?')) return;
@@ -1235,6 +1669,8 @@
       renderTravelCard();
       renderResources();
       renderPacking();
+      renderCardSet();
+      drawHeroFirs();
       renderTripCountdown();
       setupEventListeners();
       registerServiceWorker();

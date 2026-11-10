@@ -13,6 +13,8 @@ An offline-capable, installable web app (PWA) for David & Paula's Portland, OR w
 - **Sun 15:** breakfast, Powell's City of Books (optional), check-out, drive home.
 - **Travel & Stay**, **Resources** (a "Still open" to-do panel, wine-day tips, Guardian Games appointments, money, emergency, getting around, ideas), **Packing** checklist.
 - Live weather from Open-Meteo once the trip is within 16 days. Before that, and when offline, it shows November averages.
+- **Rose City Card Set:** twelve collectible Portland-fact cards, three to a pack. One pack is open before the trip and one unlocks each trip day. Collected cards are saved on each phone.
+- Hero art (Mt. Hood over a fir treeline) and a few hidden surprises; see "Fun stuff" below.
 - A footer version tag shows whether the installed copy is current.
 
 ## Files
@@ -57,6 +59,14 @@ Edit the data in `index.html`, not the HTML. Each day in `dayData` has `stops[]`
 | `options: [{name, details, mapsQuery}]` | Side-by-side choices for an undecided stop (used for Saturday dinner until v2). |
 
 Saturday has `isWine: true`, which gives it the wine accent color. A day's `note` shows a box at the top of its card. A `resources` group with `open: true` starts expanded (used for "Still open").
+
+## Fun stuff (spoilers)
+
+- **Card set:** edit `cardSet` and `cardPacks` in `index.html`. Card fields: `id`, `emoji`, `name`, `rarity` (`common`, `uncommon`, `rare`, `holo`, `secret`), `fact`, `spot`. Pack fields: `id`, `emoji`, `label`, `day` (the trip day it unlocks; leave out for "open now"), `opens`, `cards`. The never-invent-facts rule applies to card facts too: check each one against a source and hedge where sources differ.
+- **Secret rare:** the `secret` card isn't in a pack. Tapping Bigfoot in the hero treeline (left of Mt. Hood) awards it.
+- **Hidden taps:** the "Portland 2026" title five times (rose shower); any day's weather bar (rain).
+- **Celebrations:** ticking the last packing item, ticking "Pick up the wine allocation", and completing the 12-card set.
+- Animations are skipped when the phone has Reduce Motion on. Saved state: `pdx-cards` and `pdx-set-done` in localStorage.
 
 ## How to redeploy
 
