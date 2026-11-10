@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-PWA for David & Paula's Portland, OR trip (Fri Nov 6 – Sun Nov 8, 2026), built from `1davidhensley/victoria-2026`. All project docs are in `docs/`: read `docs/README.md` (how to update and redeploy) and `docs/KNOWN-ISSUES.md` (open items + version history) first.
+PWA for David & Paula's Portland, OR trip (Fri Nov 13 – Sun Nov 15, 2026), built from `1davidhensley/victoria-2026`. All project docs are in `docs/`: read `docs/README.md` (how to update and redeploy) and `docs/KNOWN-ISSUES.md` (open items + version history) first.
 
 Hard rules:
 - **Bump `CACHE_NAME` in `sw.js` (`portland-2026-vN`) on every content change**, and add a row to the version history in `docs/KNOWN-ISSUES.md`.

@@ -1,6 +1,6 @@
 # Portland 2026 Trip App
 
-An offline-capable, installable web app (PWA) for David & Paula's Portland, OR weekend, **Fri Nov 6 – Sun Nov 8, 2026**.
+An offline-capable, installable web app (PWA) for David & Paula's Portland, OR weekend, **Fri Nov 13 – Sun Nov 15, 2026** (moved from Nov 6–8), staying at the Kimpton Hotel Vintage.
 
 - **Live:** https://1davidhensley.github.io/portland-2026/
 - **Repo:** https://github.com/1davidhensley/portland-2026 (public, GitHub Pages from `main` / root)
@@ -8,10 +8,10 @@ An offline-capable, installable web app (PWA) for David & Paula's Portland, OR w
 
 ## What's in it
 
-- **Fri 6:** drive down (I-205 split at Salmon Creek), Columbia Sports Cards & More (Vancouver, WA), ORB Sports Cards (Oregon City), Ritz-Carlton check-in, dinner at Dolly Olive.
-- **Sat 7 (wine day):** Eminent Domaine and Anacréon in Newberg, LEGO Store (Washington Square), 3+ hours at Guardian Games for a card trade-in (30-min + 1-hr buylist evaluations), Detroit-style pizza at Ruse Brewing Crust Collective in Slabtown. A Friday backup for the trade-in sits on Friday's first stop.
-- **Sun 8:** breakfast, Powell's City of Books, check-out, drive home.
-- **Travel & Stay**, **Resources** (wine-day tips, money, emergency, getting around), **Packing** checklist.
+- **Fri 13:** drive down (I-205 split at Salmon Creek), Columbia Sports Cards & More and In-N-Out (Vancouver, WA), ORB Sports Cards (Oregon City), Kimpton Hotel Vintage, a 1-hr Guardian Games card evaluation at 5:00, dinner at Dolly Olive.
+- **Sat 14 (wine day):** Eminent Domaine and Anacréon in Newberg, back to the hotel, then Guardian Games for two card evaluations (3:00 and 4:00). Lunch, dinner and the driver are open.
+- **Sun 15:** breakfast, Powell's City of Books (optional), check-out, drive home.
+- **Travel & Stay**, **Resources** (a "Still open" to-do panel, wine-day tips, Guardian Games appointments, money, emergency, getting around, ideas), **Packing** checklist.
 - Live weather from Open-Meteo once the trip is within 16 days. Before that, and when offline, it shows November averages.
 - A footer version tag shows whether the installed copy is current.
 
@@ -56,7 +56,7 @@ Edit the data in `index.html`, not the HTML. Each day in `dayData` has `stops[]`
 | `tbd` | "⚠️ TBD: …" line. |
 | `options: [{name, details, mapsQuery}]` | Side-by-side choices for an undecided stop (used for Saturday dinner until v2). |
 
-Saturday has `isWine: true`, which gives it the wine accent color and the wine-day note.
+Saturday has `isWine: true`, which gives it the wine accent color. A day's `note` shows a box at the top of its card. A `resources` group with `open: true` starts expanded (used for "Still open").
 
 ## How to redeploy
 
