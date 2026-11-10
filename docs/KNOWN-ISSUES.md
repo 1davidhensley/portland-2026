@@ -14,7 +14,7 @@
 
 ### 13. Saturday lunch and dinner not booked
 - **Status:** Open
-- **Details:** Lunch (~2:00 PM, back in Portland) and dinner are both open, and since v8 the whole afternoon is free. Bacchus Bar, Ruse Brewing, Mox and the LEGO Store are listed under Resources → Ideas.
+- **Details:** Lunch (~1:45 PM, planned for Washington Square mall by the LEGO Store) and dinner are both unbooked. Bacchus Bar, Ruse Brewing, Mox and the LEGO Store are listed under Resources → Ideas.
 
 ### 14. Hotel wine hour time unknown
 - **Status:** Open (ask at the desk)
@@ -72,6 +72,7 @@
 | v6 | 2026-11-09 | Trip moved to **Fri Nov 13 – Sun Nov 15**; hotel changed to the **Kimpton Hotel Vintage** (422 SW Broadway). Friday rebuilt from Paula's Nov 9 email: leave ~8:00, Columbia 11:00, In-N-Out Vancouver 12:00, ORB 1:00, hotel ~2:30, Guardian Games evaluation 5:00–6:00, Dolly Olive 6:30. Saturday: wineries, back to the hotel, Guardian Games evaluations at 3:00, 4:00 and 5:30; hired driver, LEGO Store and Ruse dropped (LEGO and Ruse moved to Ideas). Sunday: Powell's optional, late check-out to 4 PM. New "Still open" and Guardian Games panels in Resources; packing list rewritten. Day notes are now data (`note`), and resource groups can be `open`. |
 | v7 | 2026-11-09 | Portland theming and fun: hero art (Mt. Hood, fir treeline), the **Rose City Card Set** (12 fact cards in 4 packs: one open now, one per trip day, plus a hidden secret rare), a "Cards" nav pill, and celebrations for a finished packing list, the Anacréon pickup and a full set. No itinerary changes. Card facts were checked on Nov 9 against Wikipedia, the Oregon Encyclopedia, the Portland Water Bureau, Oregon Wine Board and local news (KOIN, KPTV, KATU); the Powell's, In-N-Out and Mt. Hood cards are from general knowledge and weren't re-checked. |
 | v8 | 2026-11-10 | From David's Nov 10 plan and the updated Calendly invites: **all three Guardian Games evaluations moved to Friday** (12:30, 2:00, 4:15). Friday rebuilt: drive straight to Guardian Games on I-5 (arrive 12:15), evaluations, spend the credit, check in ~5:15, walk to Dolly Olive at 6:15. Columbia Sports Cards, In-N-Out and ORB dropped from Friday and moved to Ideas. Saturday afternoon is free (Guardian Games stops removed). Still open, the Guardian Games panel and the trade-in packing list rewritten (three stacks, duplicate-card check). Three card-set cards reworded because they named the old I-205 route: the bridge card is now the I-5 Interstate Bridge. |
+| v9 | 2026-11-10 | Saturday afternoon filled with Paula's earlier requests: **LEGO Store Washington Square** at 1:45 (with lunch at the mall, not booked) and **ORB Sports Cards** in Oregon City at 3:30, back at the hotel about 5:00. Both removed from Ideas. Columbia Sports Cards and In-N-Out stay in Ideas (Vancouver, WA is the wrong direction on Saturday; noted as Sunday drive-home options). Drive times are routing estimates without traffic. |
 
 ## Lessons carried over from london-2026 / victoria-2026
 - **Stale PWA cache:** bump `CACHE_NAME` on every content change. The footer version tag shows stale installs.

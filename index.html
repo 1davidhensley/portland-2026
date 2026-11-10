@@ -673,9 +673,9 @@
       {
         number: 14,
         date: 'Saturday, November 14',
-        theme: '🍷 Wine day · Free afternoon',
+        theme: '🍷 Wine day · LEGO Store · ORB cards',
         isWine: true,
-        note: '🍷 <b>Wine day.</b> No driver or car service is booked, so decide who drives before the first tasting. Eminent Domaine has no food, so eat a good breakfast.',
+        note: '🍷 <b>Wine day.</b> No driver or car service is booked, so decide who drives before the first tasting. The afternoon adds two more stops and about an hour and a half of driving. Eminent Domaine has no food, so eat a good breakfast.',
         weather: { ...NOV_AVG },
         stops: [
           {
@@ -720,16 +720,47 @@
           {
             time: '1:05 pm',
             emoji: '🚗',
-            name: 'Drive back to Portland',
-            details: 'About 28 mi, 50 minutes. <strong>Bring the wine inside</strong>; don\'t leave it in the car.',
+            name: 'Drive to Washington Square, Tigard',
+            details: 'About 21 mi, 40 minutes toward Portland (OR-99W → OR-217). The wine rides along for the afternoon.',
+            mapsQuery: 'LEGO Store, Washington Square, 9410 SW Washington Square Rd, Tigard, OR 97223'
+          },
+          {
+            time: '1:45 pm',
+            emoji: '🧱',
+            name: 'LEGO Store Washington Square',
+            pick: 'Paula',
+            link: 'https://www.lego.com/en-us/stores/store/washington-square',
+            details: 'Washington Square mall, 9410 SW Washington Square Rd, Tigard, OR 97223 · <a href="tel:+19714622300">(971) 462-2300</a>. Open <strong>Sat 10 am–9 pm</strong>. Lunch can happen here at the mall too.',
+            mapsQuery: 'LEGO Store, Washington Square, 9410 SW Washington Square Rd, Tigard, OR 97223',
+            tbd: 'Lunch not booked'
+          },
+          {
+            time: '3:00 pm',
+            emoji: '🚗',
+            name: 'Drive to Oregon City',
+            details: 'About 16 mi, 25 to 30 minutes (I-5 south → I-205).',
+            mapsQuery: 'ORB Sports Cards & Collectibles, 1900 McLoughlin Blvd Ste 127, Oregon City, OR 97045'
+          },
+          {
+            time: '3:30 pm',
+            emoji: '🃏',
+            name: 'ORB Sports Cards & Collectibles',
+            pick: 'Paula',
+            details: '1900 McLoughlin Blvd Ste 127, Oregon City, OR 97045. Open <strong>daily 11 am–7 pm</strong>. Moved here from Friday.',
+            mapsQuery: 'ORB Sports Cards & Collectibles, 1900 McLoughlin Blvd Ste 127, Oregon City, OR 97045'
+          },
+          {
+            time: '4:30 pm',
+            emoji: '🚗',
+            name: 'Drive back to the hotel',
+            details: 'About 15 mi, 30 minutes. <strong>Bring the wine inside</strong>; don\'t leave it in the car overnight.',
             mapsQuery: HOTEL_QUERY
           },
           {
-            time: '2:00 pm',
-            emoji: '🌿',
-            name: 'Free afternoon',
-            details: 'Back in Portland around 2:00 with nothing booked for the rest of the day. Ideas are in Resources → Ideas not yet scheduled.',
-            tbd: 'Lunch not booked'
+            time: '5:00 pm',
+            emoji: '😴',
+            name: 'Rest at the hotel',
+            details: 'Nothing booked. Bacchus Bar is in the lobby, and the hosted wine hour is daily (time not confirmed; ask the desk).'
           },
           {
             time: 'Evening',
@@ -800,7 +831,7 @@
         title: '🍷 Wine day tips',
         rows: [
           ['Driver', 'Not decided. No driver or car service is booked.'],
-          ['Food', 'Eminent Domaine has <strong>no food on site</strong>; eat a good breakfast. Lunch is back in Portland around 2:00. Anacréon also has a Bistro Menu if you\'d rather eat there.'],
+          ['Food', 'Eminent Domaine has <strong>no food on site</strong>; eat a good breakfast. Lunch is around 1:45 at Washington Square (not booked). Anacréon also has a Bistro Menu if you\'d rather eat there.'],
           ['Anacréon entrance', 'Use <strong>NE Dopp Rd</strong>. Some GPS apps send you to Calkins Lane, which has no access.'],
           ['Wine pickup', 'The Anacréon allocation is held through Sun Nov 15, then ships Nov 16. Bring a wine carrier and take the bottles inside overnight.']
         ]
@@ -843,10 +874,8 @@
           ['Bacchus Bar', 'In the hotel lobby. Food and Willamette Valley wine without leaving the building.'],
           ['Ruse Brewing Crust Collective', '1505 NW 21st Ave · <a href="tel:+19718885021">(971) 888-5021</a>. Detroit-style pizza, no reservation. The earlier Saturday dinner pick; call to check hours.'],
           ['Mox Boarding House', '1938 W Burnside St. Restaurant plus a card shop; validates 90 min of parking.'],
-          ['LEGO Store Washington Square', '9410 SW Washington Square Rd, Tigard · <a href="tel:+19714622300">(971) 462-2300</a>. On the way back from Newberg.'],
-          ['Columbia Sports Cards & More', '15644 NE Fourth Plain Blvd, Vancouver, WA · <a href="tel:+13606354400">360-635-4400</a>. Dropped from Friday when the trade-ins moved there. Hours aren\'t verified; call first.'],
-          ['In-N-Out Burger, Vancouver', '13511 SE 3rd Way, Vancouver, WA. Dropped from Friday. The address comes from news reports of the opening, not from the restaurant.'],
-          ['ORB Sports Cards & Collectibles', '1900 McLoughlin Blvd Ste 127, Oregon City. Daily 11 am–7 pm. Dropped from Friday.']
+          ['Columbia Sports Cards & More', '15644 NE Fourth Plain Blvd, Vancouver, WA · <a href="tel:+13606354400">360-635-4400</a>. Dropped from Friday when the trade-ins moved there. It\'s off I-205 in Vancouver, so the Sunday drive home is the easy time for it. Hours aren\'t verified; call first.'],
+          ['In-N-Out Burger, Vancouver', '13511 SE 3rd Way, Vancouver, WA. Dropped from Friday; also off I-205 in Vancouver, for the drive home. The address comes from news reports of the opening, not from the restaurant.']
         ]
       }
     ];
@@ -907,7 +936,7 @@
       {
         id: 'penny', emoji: '🪙', name: 'The Portland Penny', rarity: 'rare',
         fact: 'In 1845 the founders settled the town\'s name with a best-of-three coin toss. Pettygrove, from Portland, Maine, beat Lovejoy, from Boston. You came this close to a weekend in Boston, Oregon.',
-        spot: 'The toss is said to have happened in Oregon City, just south of Portland.'
+        spot: 'The toss is said to have happened in Oregon City, where ORB is on Saturday.'
       },
       {
         id: 'vintage', emoji: '🏨', name: 'Est. 1894', rarity: 'uncommon',
