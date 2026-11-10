@@ -8,8 +8,8 @@ An offline-capable, installable web app (PWA) for David & Paula's Portland, OR w
 
 ## What's in it
 
-- **Fri 13:** drive down (I-205 split at Salmon Creek), Columbia Sports Cards & More and In-N-Out (Vancouver, WA), ORB Sports Cards (Oregon City), Kimpton Hotel Vintage, a 1-hr Guardian Games card evaluation at 5:00, dinner at Dolly Olive.
-- **Sat 14 (wine day):** Eminent Domaine and Anacréon in Newberg, back to the hotel, then Guardian Games for three card evaluations (3:00, 4:00 and 5:30). Lunch, dinner and the driver are open.
+- **Fri 13:** drive straight down I-5 to Guardian Games for three card evaluations (12:30, 2:00 and 4:15), check in at the Kimpton Hotel Vintage about 5:15, walk to dinner at Dolly Olive (6:30).
+- **Sat 14 (wine day):** Eminent Domaine and Anacréon in Newberg, then a free afternoon. Lunch, dinner and the driver are open.
 - **Sun 15:** breakfast, Powell's City of Books (optional), check-out, drive home.
 - **Travel & Stay**, **Resources** (a "Still open" to-do panel, wine-day tips, Guardian Games appointments, money, emergency, getting around, ideas), **Packing** checklist.
 - Live weather from Open-Meteo once the trip is within 16 days. Before that, and when offline, it shows November averages.

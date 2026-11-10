@@ -455,7 +455,7 @@
       <h1>Portland 2026</h1>
       <div class="hero-meta">
         <span>Fri Nov 13 – Sun Nov 15</span> ·
-        <span>🃏 Card shops</span> ·
+        <span>🎲 Card trade-ins</span> ·
         <span>🍷 Willamette Valley</span>
       </div>
       <div class="countdown" id="tripCountdown"></div>
@@ -540,8 +540,8 @@
     const travelData = {
       driveDown: {
         label: '🚗 Drive down',
-        when: 'Fri Nov 13 · leave Queen Anne ~8:00 AM',
-        route: 'I-5 south → at <strong>Salmon Creek</strong> take the <strong>I-205 split</strong> (don\'t stay on I-5) → Vancouver, WA (Columbia Sports Cards, In-N-Out) → Oregon City (ORB) → Portland. About 3 hours to the first stop with Friday traffic.'
+        when: 'Fri Nov 13 · leave Queen Anne by about 8:15 AM',
+        route: 'I-5 south all the way to Portland, about 177 mi, 3 to 4 hours. The first stop is <strong>Guardian Games</strong> (345 SE Taylor St): be there by <strong>12:15 PM</strong>. Eat on the road.'
       },
       driveHome: {
         label: '🚗 Drive home',
@@ -552,7 +552,7 @@
         name: 'Kimpton Hotel Vintage Portland',
         address: '422 SW Broadway, Portland, OR 97205',
         mapsQuery: HOTEL_QUERY,
-        checkIn: 'Fri Nov 13 · 4:00 PM (early check-in on request, if available)',
+        checkIn: 'Fri Nov 13 · about 5:15 PM, after Guardian Games (check-in opens at 4:00 PM)',
         checkOut: 'Sun Nov 15 · 12:00 PM (late check-out to 4:00 PM guaranteed; ask at the desk Sat night)',
         perks: [
           'King room, city view, corner',
@@ -582,100 +582,83 @@
       {
         number: 13,
         date: 'Friday, November 13',
-        theme: '🃏 Card shops · Guardian Games · Dolly Olive',
+        theme: '🎲 Guardian Games trade-ins · Dolly Olive',
+        note: '🎲 <b>Trade-in day.</b> All three Guardian Games evaluations are this afternoon: <b>12:30</b>, <b>2:00</b> and <b>4:15</b>. Straight there from Seattle, then the hotel, then dinner.',
         weather: { ...NOV_AVG },
         stops: [
           {
-            time: '8:00 am',
+            time: 'Morning',
             emoji: '🚗',
             name: 'Leave Seattle',
-            details: 'Leave Queen Anne by about <strong>8:00 AM</strong> to reach Columbia Sports Cards at 11:00. Head south on I-5. <strong>At Salmon Creek, take the I-205 split instead of staying on I-5.</strong> I-205 runs past both card shops and lunch. <strong>Bring Friday\'s trade-in stack</strong> for the 5:00 PM appointment.',
+            details: 'Leave Queen Anne early enough to reach Guardian Games by <strong>12:15 PM</strong>. It\'s about 177 mi on I-5 and 3 to 4 hours, so leaving by about <strong>8:15 AM</strong> covers a slow drive. Stay on I-5 the whole way. <strong>Eat on the road.</strong> <strong>Bring all three trade-in stacks.</strong>',
+            mapsQuery: GUARDIAN_QUERY,
             transportDir: {
-              name: '🚗 Seattle → Vancouver, WA',
+              name: '🚗 Seattle → Guardian Games',
               steps: [
                 { icon: 'board', text: 'Queen Anne → I-5 south' },
-                { icon: 'transfer', text: 'At <strong>Salmon Creek</strong>, take the <strong>I-205</strong> split (don\'t stay on I-5)' },
-                { icon: 'exit', text: 'Exit for Columbia Sports Cards, 15644 NE Fourth Plain Blvd, Vancouver, WA' }
+                { icon: 'transfer', text: 'Stay on <strong>I-5</strong> across the Columbia River into Portland' },
+                { icon: 'exit', text: 'Guardian Games, 345 SE Taylor St (east side of the river). Free parking' }
               ],
-              time: 'Aim to arrive 11:00 AM'
+              time: 'Aim to arrive 12:15 PM'
             }
           },
           {
-            time: '11:00 am',
-            emoji: '🃏',
-            name: 'Columbia Sports Cards & More',
-            link: 'https://columbiasportscard.com/',
-            details: '15644 NE Fourth Plain Blvd, Vancouver, WA 98682 · <a href="tel:+13606354400">360-635-4400</a>.',
-            mapsQuery: 'Columbia Sports Cards & More, 15644 NE Fourth Plain Blvd, Vancouver, WA 98682',
-            confirm: '<b>Call before you leave:</b> card-shop directories list a 10 am weekday opening, but the store hasn\'t verified it. <a href="tel:+13606354400">360-635-4400</a>'
-          },
-          {
-            time: '12:00 pm',
-            emoji: '🍔',
-            name: 'Lunch: In-N-Out Burger, Vancouver',
-            pick: 'Paula',
-            details: '13511 SE 3rd Way, Vancouver, WA (east Vancouver, opened April 2026).',
-            mapsQuery: 'In-N-Out Burger, 13511 SE 3rd Way, Vancouver, WA',
-            confirm: '<b>Not checked with the restaurant:</b> the address comes from news reports of the opening. Expect a line at noon.'
-          },
-          {
-            time: '1:00 pm',
-            emoji: '🃏',
-            name: 'ORB Sports Cards & Collectibles',
-            pick: 'Paula',
-            details: '1900 McLoughlin Blvd Ste 127, Oregon City, OR 97045. Open <strong>daily 11 am–7 pm</strong>. Take I-205 south to get there.',
-            mapsQuery: 'ORB Sports Cards & Collectibles, 1900 McLoughlin Blvd Ste 127, Oregon City, OR 97045'
-          },
-          {
-            time: '2:30 pm',
-            emoji: '🏨',
-            name: 'Arrive at the Kimpton Hotel Vintage',
-            details: '422 SW Broadway, Portland, OR 97205. Parking: <strong>valet</strong>. Bring the card you booked with for incidentals.',
-            mapsQuery: HOTEL_QUERY,
-            confirm: '<b>Check-in is officially 4:00 PM.</b> Early check-in is a perk only if a room is ready, so ask. If it isn\'t, leave the bags and the car with the hotel.',
-            checklist: [
-              'Ask for early check-in and a room upgrade',
-              'Ask about the welcome amenity',
-              'Ask what the property credit can cover (valet?)',
-              'Ask what time the hosted wine hour is'
-            ]
-          },
-          {
-            time: '2:45 pm',
-            emoji: '😴',
-            name: 'Relax',
-            details: 'Settle in. Bacchus Bar is in the lobby, and the hotel hosts a daily wine hour (time not confirmed; ask the desk). Leave for Guardian Games by about <strong>4:40</strong>.'
-          },
-          {
-            time: '4:40 pm',
-            emoji: '🚗',
-            name: 'Drive to Guardian Games',
-            details: 'About 1.2 mi across the river, 5 minutes without traffic. Allow extra for the Friday rush. Free parking at the store.',
-            mapsQuery: GUARDIAN_QUERY
-          },
-          {
-            time: '5:00 pm',
+            time: '12:30 pm',
             emoji: '🎲',
-            name: 'Guardian Games: card evaluation (1 hr)',
+            name: 'Guardian Games: evaluation 1 (1 hr)',
             pick: 'Paula',
             link: 'https://www.guardiangames.com/locations/portland',
-            details: '345 SE Taylor St, Portland, OR 97214 · <a href="tel:+15032384000">(503) 238-4000</a>. <strong>5:00–6:00 PM</strong>, 1-hr buylist evaluation. Booked under <strong>Paula\'s</strong> name. The counter can still turn cards down on condition.',
-            reservation: 'Booked · 5:00–6:00 PM',
+            details: '345 SE Taylor St, Portland, OR 97214 · <a href="tel:+15032384000">(503) 238-4000</a>. <strong>12:30–1:30 PM</strong>: <strong>Paula\'s main list</strong> (Star Wars Unlimited, Hobbit and some One Piece foils), approved Nov 7. Booked under <strong>David\'s</strong> name. Leave out the cards the store didn\'t approve.',
+            reservation: 'Booked · 12:30–1:30 PM',
             mapsQuery: GUARDIAN_QUERY,
             checklist: [
               'Cards out of binders and unsleeved',
-              'Stack in the exact order of its approved list',
-              'Approved list handy on a phone or printed'
-            ],
-            tbd: 'Which list this slot is for. The list approved Nov 9 (Star Wars Unlimited, One Piece, Pokémon) goes here or in Saturday\'s 5:30 slot'
+              'Hand over Paula\'s main stack, in list order',
+              'Approved lists handy on a phone or printed'
+            ]
           },
           {
-            time: '6:00 pm',
-            emoji: '🚗',
-            name: 'Straight to dinner',
-            details: 'The appointment ends at 6:00 and the table is at 6:30, so go straight from the store. Dolly Olive is downtown, back across the river and about 0.4 mi (a 10-minute walk) from the hotel. Bring the umbrella.',
-            mapsQuery: DOLLY_QUERY,
-            tbd: 'Parking for dinner not decided: valet at the hotel and walk, or park near the restaurant'
+            time: '2:00 pm',
+            emoji: '🎲',
+            name: 'Guardian Games: evaluation 2 (1 hr)',
+            details: '<strong>2:00–3:00 PM</strong>: the <strong>new list approved Nov 9</strong> (mostly Star Wars Unlimited, plus some One Piece and Pokémon). Booked under <strong>Paula\'s</strong> name.',
+            reservation: 'Booked · 2:00–3:00 PM',
+            checklist: ['Hand over the Nov 9 stack, unsleeved, in list order']
+          },
+          {
+            time: '3:00 pm',
+            emoji: '🍽️',
+            name: 'Free time',
+            details: 'Free until 4:15. Late lunch, or browse the store.'
+          },
+          {
+            time: '4:15 pm',
+            emoji: '🎲',
+            name: 'Guardian Games: evaluation 3 (30 min)',
+            details: '<strong>4:15–4:45 PM</strong>: <strong>David\'s One Piece list</strong>. Booked under <strong>David\'s</strong> name.',
+            reservation: 'Booked · 4:15–4:45 PM',
+            checklist: ['Hand over the One Piece stack, unsleeved, in list order']
+          },
+          {
+            time: '4:45 pm',
+            emoji: '🛒',
+            name: 'Spend the store credit',
+            details: 'Credit from the accepted cards on all three lists. The counter can still turn cards down on condition, so the total may come in under the approved amounts.'
+          },
+          {
+            time: '5:15 pm',
+            emoji: '🏨',
+            name: 'Check in at the Kimpton Hotel Vintage',
+            details: '422 SW Broadway, Portland, OR 97205, about 1.2 mi back across the river. Allow extra for the Friday rush. Parking: <strong>valet</strong>. Bring the card you booked with for incidentals. Settle in: Bacchus Bar is in the lobby, and the hotel hosts a daily wine hour (time not confirmed; ask the desk).',
+            mapsQuery: HOTEL_QUERY,
+            checklist: [
+              'Ask about a room upgrade',
+              'Ask about the welcome amenity',
+              'Ask what the property credit can cover (valet?)',
+              'Ask what time the hosted wine hour is'
+            ],
+            walkTo: 'Leave at 6:15 · 0.4 mi, about a 10-minute walk to Dolly Olive. Bring the umbrella',
+            walkMapsQuery: DOLLY_QUERY
           },
           {
             time: '6:30 pm',
@@ -690,7 +673,7 @@
       {
         number: 14,
         date: 'Saturday, November 14',
-        theme: '🍷 Wine day · Guardian Games',
+        theme: '🍷 Wine day · Free afternoon',
         isWine: true,
         note: '🍷 <b>Wine day.</b> No driver or car service is booked, so decide who drives before the first tasting. Eminent Domaine has no food, so eat a good breakfast.',
         weather: { ...NOV_AVG },
@@ -743,57 +726,10 @@
           },
           {
             time: '2:00 pm',
-            emoji: '🍽️',
-            name: 'Lunch and rest',
-            details: 'Back at the hotel. Pick up both trade-in stacks before you leave again.',
+            emoji: '🌿',
+            name: 'Free afternoon',
+            details: 'Back in Portland around 2:00 with nothing booked for the rest of the day. Ideas are in Resources → Ideas not yet scheduled.',
             tbd: 'Lunch not booked'
-          },
-          {
-            time: '2:45 pm',
-            emoji: '🚗',
-            name: 'Drive to Guardian Games',
-            details: 'About 1.2 mi, 5 minutes. Free parking. Open <strong>Sat 10 am–10 pm</strong>.',
-            mapsQuery: GUARDIAN_QUERY
-          },
-          {
-            time: '3:00 pm',
-            emoji: '🎲',
-            name: 'Guardian Games: evaluation 1 (30 min)',
-            link: 'https://www.guardiangames.com/locations/portland',
-            details: '345 SE Taylor St, Portland, OR 97214 · <a href="tel:+15032384000">(503) 238-4000</a>. <strong>3:00–3:30 PM</strong>: <strong>David\'s One Piece list</strong>. Booked under <strong>Paula\'s</strong> name.',
-            reservation: 'Booked · 3:00–3:30 PM',
-            alert: '<b>The names are swapped.</b> 3:00 is David\'s One Piece list under Paula\'s name. 4:00 is Paula\'s big list under David\'s name. Bring the right stack to each slot.',
-            mapsQuery: GUARDIAN_QUERY,
-            checklist: ['Hand over the One Piece stack, unsleeved, in list order']
-          },
-          {
-            time: '3:30 pm',
-            emoji: '🛍️',
-            name: 'Browse the store'
-          },
-          {
-            time: '4:00 pm',
-            emoji: '🎲',
-            name: 'Guardian Games: evaluation 2 (1 hr)',
-            pick: 'Paula',
-            details: '<strong>4:00–5:00 PM</strong>: <strong>Paula\'s list</strong> (Star Wars Unlimited, Hobbit and some One Piece foils). Booked under <strong>David\'s</strong> name. Leave out the cards the store didn\'t approve.',
-            reservation: 'Booked · 4:00–5:00 PM',
-            checklist: ['Hand over Paula\'s stack, unsleeved, in list order']
-          },
-          {
-            time: '5:00 pm',
-            emoji: '🛒',
-            name: 'Spend the store credit',
-            details: 'Credit from all the accepted cards. The counter can still turn cards down on condition, so the total may come in under the approved amounts.'
-          },
-          {
-            time: '5:30 pm',
-            emoji: '🎲',
-            name: 'Guardian Games: evaluation 3 (1 hr)',
-            details: '<strong>5:30–6:30 PM</strong>, 1-hr buylist evaluation. Booked under <strong>David\'s</strong> name.',
-            reservation: 'Booked · 5:30–6:30 PM',
-            checklist: ['Hand over the stack, unsleeved, in list order'],
-            tbd: 'Which list this slot is for. The list approved Nov 9 goes here or in Friday\'s 5:00 slot'
           },
           {
             time: 'Evening',
@@ -854,12 +790,9 @@
         title: '⚠️ Still open',
         open: true,
         rows: [
+          ['Cancel the old Sat 3:00 slot', 'The One Piece evaluation moved to Fri 4:15, but the old <strong>Sat 3:00–3:30 PM</strong> appointment has no cancel link. Tell the store, if that isn\'t done yet: <a href="tel:+15032384000">(503) 238-4000</a>.'],
           ['Wine-day driver', 'Nobody is booked to drive on Saturday. Decide who drives, or book a car service.'],
           ['Saturday lunch and dinner', 'Neither is booked.'],
-          ['Card slots under swapped names', 'Sat 3:00 = David\'s One Piece list, under <strong>Paula\'s</strong> name. Sat 4:00 = Paula\'s big list, under <strong>David\'s</strong> name. Bring the right stack to each.'],
-          ['Which list goes in which slot', 'Four Guardian Games slots are booked. Sat 3:00 and 4:00 are set. It isn\'t settled which lists go in <strong>Fri 5:00</strong> and <strong>Sat 5:30</strong>.'],
-          ['Early check-in', 'Friday\'s plan has you at the hotel at 2:30, but check-in is 4:00 PM. A room that early isn\'t guaranteed.'],
-          ['Friday dinner parking', 'The Guardian Games appointment ends at 6:00 and Dolly Olive is at 6:30. Decide where the car goes.'],
           ['Hotel wine hour', 'The time isn\'t confirmed. Ask at the desk.']
         ]
       },
@@ -875,15 +808,15 @@
       {
         title: '🎲 Guardian Games trade-in',
         rows: [
-          ['Appointments', '<strong>Fri 5:00–6:00 PM</strong>: under Paula\'s name (list not settled).<br><strong>Sat 3:00–3:30 PM</strong>: David\'s One Piece list, under Paula\'s name.<br><strong>Sat 4:00–5:00 PM</strong>: Paula\'s list, under David\'s name.<br><strong>Sat 5:30–6:30 PM</strong>: under David\'s name (list not settled).'],
+          ['Appointments', 'All on <strong>Friday Nov 13</strong>.<br><strong>12:30–1:30 PM</strong>: Paula\'s main list, under David\'s name.<br><strong>2:00–3:00 PM</strong>: the new Nov 9 list, under Paula\'s name.<br><strong>4:15–4:45 PM</strong>: David\'s One Piece list, under David\'s name.'],
           ['How to bring the cards', 'Out of binders, unsleeved, each stack in the exact order of its approved list. Staff may not evaluate a list outside its booked time.'],
-          ['Store', '345 SE Taylor St · <a href="tel:+15032384000">(503) 238-4000</a> · free parking · Sat 10 am–10 pm.']
+          ['Store', '345 SE Taylor St · <a href="tel:+15032384000">(503) 238-4000</a> · free parking.']
         ]
       },
       {
         title: '💵 Money',
         rows: [
-          ['Sales tax', 'Oregon has <strong>no sales tax</strong>. Washington does, so Friday\'s stops in Vancouver, WA will add it.'],
+          ['Sales tax', 'Oregon has <strong>no sales tax</strong>. Washington does, so anything you buy on the drive down will include it.'],
           ['Tipping', 'Same as Seattle.']
         ]
       },
@@ -898,7 +831,7 @@
       {
         title: '🚗 Getting around',
         rows: [
-          ['Car', 'You drive down. Friday\'s card shops, Guardian Games and Saturday\'s wineries need the car. Dolly Olive (0.4 mi) and Powell\'s are walkable from the hotel.'],
+          ['Car', 'You drive down. Guardian Games on Friday and Saturday\'s wineries need the car. Dolly Olive (0.4 mi) and Powell\'s are walkable from the hotel.'],
           ['Parking', 'Hotel valet. Ask at check-in whether the property credit can go toward it. Guardian Games has free parking.'],
           ['Mach-E', 'If you take it, plan charging for about 415 mi of driving.'],
           ['Gas', 'Oregon now allows self-serve, but many stations still have attendants. If one walks over, let them pump.']
@@ -910,7 +843,10 @@
           ['Bacchus Bar', 'In the hotel lobby. Food and Willamette Valley wine without leaving the building.'],
           ['Ruse Brewing Crust Collective', '1505 NW 21st Ave · <a href="tel:+19718885021">(971) 888-5021</a>. Detroit-style pizza, no reservation. The earlier Saturday dinner pick; call to check hours.'],
           ['Mox Boarding House', '1938 W Burnside St. Restaurant plus a card shop; validates 90 min of parking.'],
-          ['LEGO Store Washington Square', '9410 SW Washington Square Rd, Tigard · <a href="tel:+19714622300">(971) 462-2300</a>. On the way back from Newberg. Dropped from Saturday to make the 3:00 appointment.']
+          ['LEGO Store Washington Square', '9410 SW Washington Square Rd, Tigard · <a href="tel:+19714622300">(971) 462-2300</a>. On the way back from Newberg.'],
+          ['Columbia Sports Cards & More', '15644 NE Fourth Plain Blvd, Vancouver, WA · <a href="tel:+13606354400">360-635-4400</a>. Dropped from Friday when the trade-ins moved there. Hours aren\'t verified; call first.'],
+          ['In-N-Out Burger, Vancouver', '13511 SE 3rd Way, Vancouver, WA. Dropped from Friday. The address comes from news reports of the opening, not from the restaurant.'],
+          ['ORB Sports Cards & Collectibles', '1900 McLoughlin Blvd Ste 127, Oregon City. Daily 11 am–7 pm. Dropped from Friday.']
         ]
       }
     ];
@@ -920,14 +856,14 @@
     // ============================================================
     const packingList = {
       '🃏 Card trade-in prep': [
-        ['stack-fri', 'Friday 5:00 stack, labeled'],
-        ['stack-sat530', 'Saturday 5:30 stack, labeled (the Nov 9 list, Star Wars Unlimited / One Piece / Pokémon, goes in one of these two)'],
-        ['stack-sat3', 'Saturday 3:00 stack, labeled: David\'s One Piece list'],
-        ['stack-sat4', 'Saturday 4:00 stack, labeled: Paula\'s Star Wars / Hobbit / foils list'],
+        ['stack-1230', 'Stack 1, labeled: Fri 12:30, Paula\'s main list (Star Wars Unlimited / Hobbit / One Piece foils)'],
+        ['stack-200', 'Stack 2, labeled: Fri 2:00, the new Nov 9 list (Star Wars Unlimited / One Piece / Pokémon)'],
+        ['stack-415', 'Stack 3, labeled: Fri 4:15, David\'s One Piece list'],
         ['tradein', 'All cards unsleeved and out of binders'],
         ['order', 'Each stack in the exact order of its approved list'],
-        ['pull', 'Pull the cards the store didn\'t approve from Paula\'s stack (a few Star Wars foils, incl. Rey, Mandalorian, both Chio Fain)'],
-        ['lists', 'All approved lists on a phone or printed'],
+        ['pull', 'Pull any cards the store didn\'t approve (on Paula\'s main list: a few Star Wars foils, incl. Rey, Mandalorian, both Chio Fain)'],
+        ['dupes', 'Check copies of cards that are on two lists (Kawamatsu, Kin\'emon, Zoro, Oden foil, Mihawk foil)'],
+        ['lists', 'All three approved lists on a phone or printed'],
         ['photo-id', 'Photo ID'],
         ['toploaders', 'Sturdy box or toploader case']
       ],
@@ -971,7 +907,7 @@
       {
         id: 'penny', emoji: '🪙', name: 'The Portland Penny', rarity: 'rare',
         fact: 'In 1845 the founders settled the town\'s name with a best-of-three coin toss. Pettygrove, from Portland, Maine, beat Lovejoy, from Boston. You came this close to a weekend in Boston, Oregon.',
-        spot: 'The toss is said to have happened in Oregon City, where ORB is on Friday.'
+        spot: 'The toss is said to have happened in Oregon City, just south of Portland.'
       },
       {
         id: 'vintage', emoji: '🏨', name: 'Est. 1894', rarity: 'uncommon',
@@ -986,17 +922,17 @@
       {
         id: 'animal', emoji: '🍔', name: 'Animal Style', rarity: 'common',
         fact: 'It isn\'t on the board, but it is on In-N-Out\'s own "Not So Secret Menu": a mustard-cooked patty, extra spread, pickles and grilled onions.',
-        spot: 'Friday lunch. Say the words.'
+        spot: 'Your next In-N-Out stop. Say the words.'
       },
       {
-        id: 'bridge', emoji: '🌉', name: 'Glenn Jackson Bridge', rarity: 'uncommon',
-        fact: 'Friday\'s drive crosses the Columbia River on I-205\'s Glenn Jackson Bridge. Washington behind you, Oregon ahead.',
-        spot: 'Between In-N-Out and ORB.'
+        id: 'bridge', emoji: '🌉', name: 'Interstate Bridge', rarity: 'uncommon',
+        fact: 'Friday\'s drive crosses the Columbia River on I-5\'s Interstate Bridge. Washington behind you, Oregon ahead.',
+        spot: 'Just past Vancouver, WA, on the way in.'
       },
       {
         id: 'hood', emoji: '🏔️', name: 'Mt. Hood', rarity: 'holo',
         fact: 'Oregon\'s tallest peak, a little over 11,200 feet. It\'s also a volcano.',
-        spot: 'On a clear day, look east from the I-205 bridge. November may have other plans.'
+        spot: 'On a clear day, look east as you cross the Columbia. November may have other plans.'
       },
       {
         id: 'ribbon', emoji: '🍇', name: 'Ribbon Ridge', rarity: 'holo',
