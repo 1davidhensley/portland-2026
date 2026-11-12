@@ -552,7 +552,7 @@
         name: 'Kimpton Hotel Vintage Portland',
         address: '422 SW Broadway, Portland, OR 97205',
         mapsQuery: HOTEL_QUERY,
-        checkIn: 'Fri Nov 13 · about 5:15 PM, after Guardian Games (check-in opens at 4:00 PM)',
+        checkIn: 'Fri Nov 13 · about 5:55 PM, after Guardian Games (check-in opens at 4:00 PM). Keep it quick: dinner is at 6:30',
         checkOut: 'Sun Nov 15 · 12:00 PM (late check-out to 4:00 PM guaranteed; ask at the desk Sat night)',
         perks: [
           'King room, city view, corner',
@@ -583,14 +583,14 @@
         number: 13,
         date: 'Friday, November 13',
         theme: '🎲 Guardian Games trade-ins · Dolly Olive',
-        note: '🎲 <b>Trade-in day.</b> All three Guardian Games evaluations are this afternoon: <b>12:30</b>, <b>2:00</b> and <b>4:15</b>. Straight there from Seattle, then the hotel, then dinner.',
+        note: '🎲 <b>Trade-in day.</b> Four Guardian Games evaluations are booked this afternoon: <b>12:30</b>, <b>2:00</b>, <b>4:15</b> and <b>5:00</b>. The store suggests bringing <b>all four stacks in at 12:30</b>; if they have time, they\'ll do them all then. The last slot ends at 5:30, so the evening is tight: quick check-in, then dinner at 6:30.',
         weather: { ...NOV_AVG },
         stops: [
           {
             time: 'Morning',
             emoji: '🚗',
             name: 'Leave Seattle',
-            details: 'Leave Queen Anne early enough to reach Guardian Games by <strong>12:15 PM</strong>. It\'s about 177 mi on I-5 and 3 to 4 hours, so leaving by about <strong>8:15 AM</strong> covers a slow drive. Stay on I-5 the whole way. <strong>Eat on the road.</strong> <strong>Bring all three trade-in stacks.</strong>',
+            details: 'Leave Queen Anne early enough to reach Guardian Games by <strong>12:15 PM</strong>. It\'s about 177 mi on I-5 and 3 to 4 hours, so leaving by about <strong>8:15 AM</strong> covers a slow drive. Stay on I-5 the whole way. <strong>Eat on the road.</strong> <strong>Bring all four trade-in stacks.</strong>',
             mapsQuery: GUARDIAN_QUERY,
             transportDir: {
               name: '🚗 Seattle → Guardian Games',
@@ -612,6 +612,7 @@
             reservation: 'Booked · 12:30–1:30 PM',
             mapsQuery: GUARDIAN_QUERY,
             checklist: [
+              'Bring all four stacks in and ask if they can do them all now',
               'Cards out of binders and unsleeved',
               'Hand over Paula\'s main stack, in list order',
               'Approved lists handy on a phone or printed'
@@ -629,7 +630,7 @@
             time: '3:00 pm',
             emoji: '🍽️',
             name: 'Free time',
-            details: 'Free until 4:15. Late lunch, or browse the store.'
+            details: 'Free until 4:15. Late lunch, or browse the store. Pick out what you want now: there\'s only about 10 minutes to shop after the last evaluation.'
           },
           {
             time: '4:15 pm',
@@ -640,16 +641,24 @@
             checklist: ['Hand over the One Piece stack, unsleeved, in list order']
           },
           {
-            time: '4:45 pm',
-            emoji: '🛒',
-            name: 'Spend the store credit',
-            details: 'Credit from the accepted cards on all three lists. The counter can still turn cards down on condition, so the total may come in under the approved amounts.'
+            time: '5:00 pm',
+            emoji: '🎲',
+            name: 'Guardian Games: evaluation 4 (30 min)',
+            details: '<strong>5:00–5:30 PM</strong>: the <strong>Pokémon list approved Nov 11</strong>. Booked under <strong>David\'s</strong> name. If the store got through this list earlier in the day, skip the wait and head to the hotel.',
+            reservation: 'Booked · 5:00–5:30 PM',
+            checklist: ['Hand over the Pokémon stack, unsleeved, in list order']
           },
           {
-            time: '5:15 pm',
+            time: '5:30 pm',
+            emoji: '🛒',
+            name: 'Spend the store credit',
+            details: 'Credit from the accepted cards on all four lists. The counter can still turn cards down on condition, so the total may come in under the approved amounts. <strong>Leave by about 5:40</strong> to make dinner.'
+          },
+          {
+            time: '5:55 pm',
             emoji: '🏨',
             name: 'Check in at the Kimpton Hotel Vintage',
-            details: '422 SW Broadway, Portland, OR 97205, about 1.2 mi back across the river. Allow extra for the Friday rush. Parking: <strong>valet</strong>. Bring the card you booked with for incidentals. Settle in: Bacchus Bar is in the lobby, and the hotel hosts a daily wine hour (time not confirmed; ask the desk).',
+            details: '422 SW Broadway, Portland, OR 97205, about 1.2 mi back across the river. Allow extra for the Friday rush. Parking: <strong>valet</strong>. Bring the card you booked with for incidentals. <strong>Keep it quick</strong>: drop the car and bags, then walk to dinner at 6:15. Bacchus Bar is in the lobby, and the hotel hosts a daily wine hour (time not confirmed; ask the desk).',
             mapsQuery: HOTEL_QUERY,
             checklist: [
               'Ask about a room upgrade',
@@ -821,7 +830,8 @@
         title: '⚠️ Still open',
         open: true,
         rows: [
-          ['Cancel the old Sat 3:00 slot', 'The One Piece evaluation moved to Fri 4:15, but the old <strong>Sat 3:00–3:30 PM</strong> appointment has no cancel link. Tell the store, if that isn\'t done yet: <a href="tel:+15032384000">(503) 238-4000</a>.'],
+          ['Cancel the old Sat 3:00 slot', 'The One Piece evaluation moved to Fri 4:15, but the old <strong>Sat 3:00–3:30 PM</strong> appointment has no cancel link, and the store still had it on the books on Nov 11. Tell them on Friday, or call: <a href="tel:+15032384000">(503) 238-4000</a>.'],
+          ['Friday evening is tight', 'The last evaluation ends at 5:30 and dinner is at 6:30 with a 10-minute grace period. If the store runs late, call Dolly Olive: <a href="tel:+15037196921">(503) 719-6921</a>.'],
           ['Wine-day driver', 'Nobody is booked to drive on Saturday. Decide who drives, or book a car service.'],
           ['Saturday lunch and dinner', 'Neither is booked.'],
           ['Hotel wine hour', 'The time isn\'t confirmed. Ask at the desk.']
@@ -839,7 +849,8 @@
       {
         title: '🎲 Guardian Games trade-in',
         rows: [
-          ['Appointments', 'All on <strong>Friday Nov 13</strong>.<br><strong>12:30–1:30 PM</strong>: Paula\'s main list, under David\'s name.<br><strong>2:00–3:00 PM</strong>: the new Nov 9 list, under Paula\'s name.<br><strong>4:15–4:45 PM</strong>: David\'s One Piece list, under David\'s name.'],
+          ['Appointments', 'All on <strong>Friday Nov 13</strong>.<br><strong>12:30–1:30 PM</strong>: Paula\'s main list, under David\'s name.<br><strong>2:00–3:00 PM</strong>: the new Nov 9 list, under Paula\'s name.<br><strong>4:15–4:45 PM</strong>: David\'s One Piece list, under David\'s name.<br><strong>5:00–5:30 PM</strong>: the Pokémon list approved Nov 11, under David\'s name.'],
+          ['Store\'s advice', 'Bring <strong>all four stacks in at 12:30</strong>. The store says which list goes in which slot matters less than the time booked, and if there\'s time they\'ll do them all then. Late afternoon is their busy time.'],
           ['How to bring the cards', 'Out of binders, unsleeved, each stack in the exact order of its approved list. Staff may not evaluate a list outside its booked time.'],
           ['Store', '345 SE Taylor St · <a href="tel:+15032384000">(503) 238-4000</a> · free parking.']
         ]
@@ -888,11 +899,12 @@
         ['stack-1230', 'Stack 1, labeled: Fri 12:30, Paula\'s main list (Star Wars Unlimited / Hobbit / One Piece foils)'],
         ['stack-200', 'Stack 2, labeled: Fri 2:00, the new Nov 9 list (Star Wars Unlimited / One Piece / Pokémon)'],
         ['stack-415', 'Stack 3, labeled: Fri 4:15, David\'s One Piece list'],
+        ['stack-500', 'Stack 4, labeled: Fri 5:00, the Pokémon list approved Nov 11'],
         ['tradein', 'All cards unsleeved and out of binders'],
         ['order', 'Each stack in the exact order of its approved list'],
         ['pull', 'Pull any cards the store didn\'t approve (on Paula\'s main list: a few Star Wars foils, incl. Rey, Mandalorian, both Chio Fain)'],
         ['dupes', 'Check copies of cards that are on two lists (Kawamatsu, Kin\'emon, Zoro, Oden foil, Mihawk foil)'],
-        ['lists', 'All three approved lists on a phone or printed'],
+        ['lists', 'All four approved lists on a phone or printed'],
         ['photo-id', 'Photo ID'],
         ['toploaders', 'Sturdy box or toploader case']
       ],

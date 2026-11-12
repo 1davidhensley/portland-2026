@@ -8,7 +8,7 @@ An offline-capable, installable web app (PWA) for David & Paula's Portland, OR w
 
 ## What's in it
 
-- **Fri 13:** drive straight down I-5 to Guardian Games for three card evaluations (12:30, 2:00 and 4:15), check in at the Kimpton Hotel Vintage about 5:15, walk to dinner at Dolly Olive (6:30).
+- **Fri 13:** drive straight down I-5 to Guardian Games for four card evaluations (12:30, 2:00, 4:15 and 5:00), check in at the Kimpton Hotel Vintage about 5:55, walk to dinner at Dolly Olive (6:30).
 - **Sat 14 (wine day):** Eminent Domaine and Anacréon in Newberg, then the LEGO Store at Washington Square and ORB Sports Cards (Oregon City) on the way back. Lunch, dinner and the driver are open.
 - **Sun 15:** breakfast, Powell's City of Books (optional), check-out, drive home.
 - **Travel & Stay**, **Resources** (a "Still open" to-do panel, wine-day tips, Guardian Games appointments, money, emergency, getting around, ideas), **Packing** checklist.

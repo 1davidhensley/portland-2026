@@ -4,8 +4,12 @@
 
 ### 15. Old Saturday 3:00 PM Guardian Games slot may still be booked
 - **Status:** Open (settle before Fri Nov 13)
-- **Details:** The One Piece evaluation was rebooked for Fri Nov 13 4:15–4:45 PM. The original Sat Nov 14 3:00–3:30 PM appointment (under Paula's name) has no cancel link in its invite, and no cancellation was found in mail as of Nov 10. Shown in Resources → Still open with the store's phone number.
+- **Details:** The One Piece evaluation was rebooked for Fri Nov 13 4:15–4:45 PM. The original Sat Nov 14 3:00–3:30 PM appointment (under Paula's name) has no cancel link in its invite. The store's Nov 11 email still lists it. Shown in Resources → Still open with the store's phone number.
 - **Fix when done:** remove the row from Still open.
+
+### 16. Friday evening is tight after the 5:00 evaluation
+- **Status:** Open (David to confirm the plan)
+- **Details:** The fourth evaluation runs 5:00–5:30 PM and Dolly Olive is at 6:30 with a 10-minute grace period. v10 assumes: leave the store about 5:40, quick check-in about 5:55, walk at 6:15. These times are estimates, not bookings. The store suggested bringing all four lists at 12:30, which may free the late slots, but that isn't guaranteed. Shown in Resources → Still open.
 
 ### 5. Saturday driver not decided
 - **Status:** Open
@@ -73,6 +77,7 @@
 | v7 | 2026-11-09 | Portland theming and fun: hero art (Mt. Hood, fir treeline), the **Rose City Card Set** (12 fact cards in 4 packs: one open now, one per trip day, plus a hidden secret rare), a "Cards" nav pill, and celebrations for a finished packing list, the Anacréon pickup and a full set. No itinerary changes. Card facts were checked on Nov 9 against Wikipedia, the Oregon Encyclopedia, the Portland Water Bureau, Oregon Wine Board and local news (KOIN, KPTV, KATU); the Powell's, In-N-Out and Mt. Hood cards are from general knowledge and weren't re-checked. |
 | v8 | 2026-11-10 | From David's Nov 10 plan and the updated Calendly invites: **all three Guardian Games evaluations moved to Friday** (12:30, 2:00, 4:15). Friday rebuilt: drive straight to Guardian Games on I-5 (arrive 12:15), evaluations, spend the credit, check in ~5:15, walk to Dolly Olive at 6:15. Columbia Sports Cards, In-N-Out and ORB dropped from Friday and moved to Ideas. Saturday afternoon is free (Guardian Games stops removed). Still open, the Guardian Games panel and the trade-in packing list rewritten (three stacks, duplicate-card check). Three card-set cards reworded because they named the old I-205 route: the bridge card is now the I-5 Interstate Bridge. |
 | v9 | 2026-11-10 | Saturday afternoon filled with Paula's earlier requests: **LEGO Store Washington Square** at 1:45 (with lunch at the mall, not booked) and **ORB Sports Cards** in Oregon City at 3:30, back at the hotel about 5:00. Both removed from Ideas. Columbia Sports Cards and In-N-Out stay in Ideas (Vancouver, WA is the wrong direction on Saturday; noted as Sunday drive-home options). Drive times are routing estimates without traffic. |
+| v10 | 2026-11-11 | From the Nov 11 trade-in approval, the new Calendly invite and the store's Nov 11 reply: **fourth Guardian Games evaluation added, Fri 5:00–5:30 PM** (Pokémon list approved Nov 11, under David's name). Spend-the-credit moved to 5:30, check-in to about 5:55 (quick), walk to Dolly Olive still 6:15. Added the store's advice to bring all four stacks at 12:30. Still open gains a "Friday evening is tight" row; the Sat 3:00 row notes the store still lists it. Packing: fourth stack, "all four lists". |
 
 ## Lessons carried over from london-2026 / victoria-2026
 - **Stale PWA cache:** bump `CACHE_NAME` on every content change. The footer version tag shows stale installs.
